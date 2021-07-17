@@ -476,7 +476,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
@@ -488,30 +496,30 @@
 <span id="more"></span>
 
 <h2 id="请求媒体捕捉访问权限"><a href="#请求媒体捕捉访问权限" class="headerlink" title="请求媒体捕捉访问权限"></a>请求媒体捕捉访问权限</h2><h5 id="如果你的App要使用摄像头，需要在Info-plist文件的NSCameraUsageDescription指定使用摄像头的原因。"><a href="#如果你的App要使用摄像头，需要在Info-plist文件的NSCameraUsageDescription指定使用摄像头的原因。" class="headerlink" title="如果你的App要使用摄像头，需要在Info.plist文件的NSCameraUsageDescription指定使用摄像头的原因。"></a>如果你的App要使用摄像头，需要在Info.plist文件的NSCameraUsageDescription指定使用摄像头的原因。</h5><h5 id="如果你的App要使用麦克风，需要在Info-plist文件的NSMicrophoneUsageDescription指定使用麦克风的原因。"><a href="#如果你的App要使用麦克风，需要在Info-plist文件的NSMicrophoneUsageDescription指定使用麦克风的原因。" class="headerlink" title="如果你的App要使用麦克风，需要在Info.plist文件的NSMicrophoneUsageDescription指定使用麦克风的原因。"></a>如果你的App要使用麦克风，需要在Info.plist文件的NSMicrophoneUsageDescription指定使用麦克风的原因。</h5><p>请注意，如果没有指定对应API的使用原因，那么你在调用相关API时，系统会将你的App终结。</p>
-<h4 id="检查授权情况"><a href="#检查授权情况" class="headerlink" title="检查授权情况"></a>检查授权情况</h4><h5 id="苹果官方文档建议我们在使用以上这些API之前首先使用-AVCaptureDevice-authorizationStatus-for-检查应用权限的授予情况，如果没有被授予使用权限，需要使用AVCaptureDevice-requestAccess-for-completionHandler-来显示弹框，请求权限。"><a href="#苹果官方文档建议我们在使用以上这些API之前首先使用-AVCaptureDevice-authorizationStatus-for-检查应用权限的授予情况，如果没有被授予使用权限，需要使用AVCaptureDevice-requestAccess-for-completionHandler-来显示弹框，请求权限。" class="headerlink" title="苹果官方文档建议我们在使用以上这些API之前首先使用 AVCaptureDevice.authorizationStatus(for:) 检查应用权限的授予情况，如果没有被授予使用权限，需要使用AVCaptureDevice.requestAccess(for:completionHandler:)来显示弹框，请求权限。"></a>苹果官方文档建议我们在使用以上这些API之前首先使用 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice">AVCaptureDevice</a>.<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice/1624613-authorizationstatus">authorizationStatus(for:)</a> 检查应用权限的授予情况，如果没有被授予使用权限，需要使用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice">AVCaptureDevice</a>.<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice/1624584-requestaccess">requestAccess(for:completionHandler:)</a>来显示弹框，请求权限。</h5><pre><code class="swift">switch AVCaptureDevice.authorizationStatus(for: .video) &#123;
-    case .authorized: // 用户之前已经授予了使用权限
-        self.setupCaptureSession()
+<h4 id="检查授权情况"><a href="#检查授权情况" class="headerlink" title="检查授权情况"></a>检查授权情况</h4><h5 id="苹果官方文档建议我们在使用以上这些API之前首先使用-AVCaptureDevice-authorizationStatus-for-检查应用权限的授予情况，如果没有被授予使用权限，需要使用AVCaptureDevice-requestAccess-for-completionHandler-来显示弹框，请求权限。"><a href="#苹果官方文档建议我们在使用以上这些API之前首先使用-AVCaptureDevice-authorizationStatus-for-检查应用权限的授予情况，如果没有被授予使用权限，需要使用AVCaptureDevice-requestAccess-for-completionHandler-来显示弹框，请求权限。" class="headerlink" title="苹果官方文档建议我们在使用以上这些API之前首先使用 AVCaptureDevice.authorizationStatus(for:) 检查应用权限的授予情况，如果没有被授予使用权限，需要使用AVCaptureDevice.requestAccess(for:completionHandler:)来显示弹框，请求权限。"></a>苹果官方文档建议我们在使用以上这些API之前首先使用 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice">AVCaptureDevice</a>.<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice/1624613-authorizationstatus">authorizationStatus(for:)</a> 检查应用权限的授予情况，如果没有被授予使用权限，需要使用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice">AVCaptureDevice</a>.<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice/1624584-requestaccess">requestAccess(for:completionHandler:)</a>来显示弹框，请求权限。</h5><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">switch</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token function">authorizationStatus</span><span class="token punctuation">(</span><span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>video<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">case</span> <span class="token punctuation">.</span>authorized<span class="token punctuation">:</span> <span class="token comment">// 用户之前已经授予了使用权限</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">setupCaptureSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     
-    case .notDetermined: // 还没有授予权限
-        // requestAccess方法将会显示系统的权限请求弹窗
-        // 要先配置Info.plist文件，添加NSCameraUsageDescription字段
-        // 先停止sessionQueue的进行
-        self.sessionQueue.suspend()
-        AVCaptureDevice.requestAccess(for: .video) &#123; granted in
-            if granted &#123;
-                self.sessionQueue.resume()
-                self.setupCaptureSession()
-            &#125;
-        &#125;
+    <span class="token keyword">case</span> <span class="token punctuation">.</span>notDetermined<span class="token punctuation">:</span> <span class="token comment">// 还没有授予权限</span>
+    	<span class="token comment">// requestAccess方法将会显示系统的权限请求弹窗</span>
+    	<span class="token comment">// 要先配置Info.plist文件，添加NSCameraUsageDescription字段</span>
+    	<span class="token comment">// 先停止sessionQueue的进行</span>
+    	<span class="token keyword">self</span><span class="token punctuation">.</span>sessionQueue<span class="token punctuation">.</span><span class="token function">suspend</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token function">requestAccess</span><span class="token punctuation">(</span><span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>video<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> granted <span class="token keyword">in</span>
+            <span class="token keyword">if</span> granted <span class="token punctuation">&#123;</span>
+                <span class="token keyword">self</span><span class="token punctuation">.</span>sessionQueue<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">setupCaptureSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
     
-    case .denied: // 被拒绝
-           self.sessionQueue.suspend()
-        return
-    case .restricted: // 因为某些原因无法授予权限
-           self.sessionQueue.suspend()
-        return
-&#125;
-</code></pre>
+    <span class="token keyword">case</span> <span class="token punctuation">.</span>denied<span class="token punctuation">:</span> <span class="token comment">// 被拒绝</span>
+       	<span class="token keyword">self</span><span class="token punctuation">.</span>sessionQueue<span class="token punctuation">.</span><span class="token function">suspend</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+    <span class="token keyword">case</span> <span class="token punctuation">.</span>restricted<span class="token punctuation">:</span> <span class="token comment">// 因为某些原因无法授予权限</span>
+       	<span class="token keyword">self</span><span class="token punctuation">.</span>sessionQueue<span class="token punctuation">.</span><span class="token function">suspend</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>请注意，如果摄像或者拍照不是你的App的主要功能，那么你只能在会使用到相关功能的时候才可以请求权限。</p>
 <h4 id="请求保存媒体权限"><a href="#请求保存媒体权限" class="headerlink" title="请求保存媒体权限"></a>请求保存媒体权限</h4><p>如果是使用上述API拍摄的视频或者照片，请使用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/photokit/phphotolibrary">PHPhotoLibrary</a>以及<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/photokit/phassetcreationrequest">PHAssetCreationRequest</a>类。这些类会使用到相册的读写权限，所以需要指定NSPhotoLibraryUsageDescription字段。</p>
 <p>如果只是想保存UIImage对象，请使用 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/1619125-uiimagewritetosavedphotosalbum">UIImageWriteToSavedPhotosAlbum(<em>:</em>:<em>:</em>:)</a> 方法，此方法会使用到相册的写入权限。请注意，如果图片对象来自AVFoundation（ <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturephotooutput">AVCapturePhotoOutput</a>），不推荐使用此方法写入，因为UIImage中不会包含图片中的全部信息。</p>
@@ -522,175 +530,178 @@
 <p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedeviceinput">AVCaptureDeviceInput</a>类代表一个输入流，它基于一个captureDevice，比如前置相机，话筒等。负责与captureSession交互。</p>
 <p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcaptureoutput">AVCaptureDeviceOutput</a>类代表了一个输出流，这是一个抽象类，它描述的是媒体输出的方式，比如图片输出：<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturephotooutput">AVCapturePhotoOutput</a>，用于描述的是静态图像，Live Photo等媒体输出方式。</p>
 <p>所以初始化session之后，就是开始配置：</p>
-<pre><code class="swift">// 固定语法，开始AVCaptureSession类的配置
-captureSession.beginConfiguration()
-// 获取后置的摄像头
-let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera,
-                                          for: .video, position: .unspecified)
-guard
-    let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!),
-    // 在添加输出或者输入流之前必须检查是否可以添加
-    captureSession.canAddInput(videoDeviceInput)
-    else &#123; return &#125;
-captureSession.addInput(videoDeviceInput)
-</code></pre>
-<p><code>AVCaptureDevice</code>的可选值有这些：</p>
-<pre><code class="swift">// 内置麦克风
-static let builtInMicrophone: AVCaptureDevice.DeviceType
-// 对于iPhone来说，指的是后置的摄像头
-static let builtInWideAngleCamera: AVCaptureDevice.DeviceType
-// 后置双摄
-static let builtInDualCamera: AVCaptureDevice.DeviceType
-// 这个就不用说了，粪叉以后带出来的TrueDepth摄像头
-static let builtInTrueDepthCamera: AVCaptureDevice.DeviceType
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// 固定语法，开始AVCaptureSession类的配置</span>
+captureSession<span class="token punctuation">.</span><span class="token function">beginConfiguration</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 获取后置的摄像头</span>
+<span class="token keyword">let</span> videoDevice <span class="token operator">=</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">(</span><span class="token punctuation">.</span>builtInWideAngleCamera<span class="token punctuation">,</span>
+                                          <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>video<span class="token punctuation">,</span> position<span class="token punctuation">:</span> <span class="token punctuation">.</span>unspecified<span class="token punctuation">)</span>
+<span class="token keyword">guard</span>
+    <span class="token keyword">let</span> videoDeviceInput <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">?</span> <span class="token function">AVCaptureDeviceInput</span><span class="token punctuation">(</span>device<span class="token punctuation">:</span> videoDevice<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token comment">// 在添加输出或者输入流之前必须检查是否可以添加</span>
+    captureSession<span class="token punctuation">.</span><span class="token function">canAddInput</span><span class="token punctuation">(</span>videoDeviceInput<span class="token punctuation">)</span>
+    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token punctuation">&#125;</span>
+captureSession<span class="token punctuation">.</span><span class="token function">addInput</span><span class="token punctuation">(</span>videoDeviceInput<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-/// ... 
-</code></pre>
+<p><code>AVCaptureDevice</code>的可选值有这些：</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// 内置麦克风</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> builtInMicrophone<span class="token punctuation">:</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token builtin">DeviceType</span>
+<span class="token comment">// 对于iPhone来说，指的是后置的摄像头</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> builtInWideAngleCamera<span class="token punctuation">:</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token builtin">DeviceType</span>
+<span class="token comment">// 后置双摄</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> builtInDualCamera<span class="token punctuation">:</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token builtin">DeviceType</span>
+<span class="token comment">// 这个就不用说了，粪叉以后带出来的TrueDepth摄像头</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> builtInTrueDepthCamera<span class="token punctuation">:</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token builtin">DeviceType</span>
+
+<span class="token comment">/// ... </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>一个captureSession可以配置多个输入以及输出流，比如需求是需要同时调用后置摄像头以及麦克风，你可以这样写：</p>
-<pre><code class="swift">captureSession.beginConfiguration()
-let photoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
-let microphoneDevice = AVCaptureDevice.default(.builtInMicrophone, for: .audio, position: .unspecified)
-guard let photoDeviceInput = try? AVCaptureDeviceInput(device: photoDevice!), 
-      let microDeviceInput = try? AVCaptureDeviceInput(device: microphoneDevice!),
-      captureSession.canAddInput(photoDeviceInput),
-      captureSession.canAddInput(microDeviceInput) else &#123;return&#125;
-captureSession.addInput(photoDeviceInput)
-captureSession.addInput(microDeviceInput)
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">captureSession<span class="token punctuation">.</span><span class="token function">beginConfiguration</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> photoDevice <span class="token operator">=</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">(</span><span class="token punctuation">.</span>builtInWideAngleCamera<span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>video<span class="token punctuation">,</span> position<span class="token punctuation">:</span> <span class="token punctuation">.</span>back<span class="token punctuation">)</span>
+<span class="token keyword">let</span> microphoneDevice <span class="token operator">=</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">(</span><span class="token punctuation">.</span>builtInMicrophone<span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>audio<span class="token punctuation">,</span> position<span class="token punctuation">:</span> <span class="token punctuation">.</span>unspecified<span class="token punctuation">)</span>
+<span class="token keyword">guard</span> <span class="token keyword">let</span> photoDeviceInput <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">?</span> <span class="token function">AVCaptureDeviceInput</span><span class="token punctuation">(</span>device<span class="token punctuation">:</span> photoDevice<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+	  <span class="token keyword">let</span> microDeviceInput <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">?</span> <span class="token function">AVCaptureDeviceInput</span><span class="token punctuation">(</span>device<span class="token punctuation">:</span> microphoneDevice<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  captureSession<span class="token punctuation">.</span><span class="token function">canAddInput</span><span class="token punctuation">(</span>photoDeviceInput<span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  captureSession<span class="token punctuation">.</span><span class="token function">canAddInput</span><span class="token punctuation">(</span>microDeviceInput<span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span><span class="token keyword">return</span><span class="token punctuation">&#125;</span>
+captureSession<span class="token punctuation">.</span><span class="token function">addInput</span><span class="token punctuation">(</span>photoDeviceInput<span class="token punctuation">)</span>
+captureSession<span class="token punctuation">.</span><span class="token function">addInput</span><span class="token punctuation">(</span>microDeviceInput<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>下一步，添加输出流：</p>
-<pre><code class="swift">let photoOutput = AVCapturePhotoOutput()
-// photoOutput.isLivePhotoCaptureEnabled = photoOutput.isLivePhotoCaptureSupported
-// photoOutput.isDepthDataDeliveryEnabled = photoOutput.isDepthDataDeliverySupported
-// photoOutput.isPortraitEffectsMatteDeliveryEnabled = photoOutput.isPortraitEffectsMatteDeliverySupported
-// 需要注意的是，如果你的应用支持切换前后摄像头的功能，以上这些属性都需要重新设置一次。
-guard captureSession.canAddOutput(photoOutput) else &#123; return &#125;
-captureSession.sessionPreset = .photo
-captureSession.addOutput(photoOutput)
-captureSession.commitConfiguration()
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> photoOutput <span class="token operator">=</span> <span class="token function">AVCapturePhotoOutput</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// photoOutput.isLivePhotoCaptureEnabled = photoOutput.isLivePhotoCaptureSupported</span>
+<span class="token comment">// photoOutput.isDepthDataDeliveryEnabled = photoOutput.isDepthDataDeliverySupported</span>
+<span class="token comment">// photoOutput.isPortraitEffectsMatteDeliveryEnabled = photoOutput.isPortraitEffectsMatteDeliverySupported</span>
+<span class="token comment">// 需要注意的是，如果你的应用支持切换前后摄像头的功能，以上这些属性都需要重新设置一次。</span>
+<span class="token keyword">guard</span> captureSession<span class="token punctuation">.</span><span class="token function">canAddOutput</span><span class="token punctuation">(</span>photoOutput<span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token punctuation">&#125;</span>
+captureSession<span class="token punctuation">.</span>sessionPreset <span class="token operator">=</span> <span class="token punctuation">.</span>photo
+captureSession<span class="token punctuation">.</span><span class="token function">addOutput</span><span class="token punctuation">(</span>photoOutput<span class="token punctuation">)</span>
+captureSession<span class="token punctuation">.</span><span class="token function">commitConfiguration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>输出并不依赖于硬件，所以只需要添加一个输出流，配置完成之后调用<code>commitConfiguration</code>。这里只是进行了一个最基础的captureSession的配置，一般来说，只需要一个输入以及输出流，一个流程就算是走通了。</p>
 <p>视频格式的媒体捕获，对应的输出类型是<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturemoviefileoutput"><code>AVCaptureMovieFileOutput</code></a>。</p>
 <p>####显示相机预览 </p>
 <p>实时预览到相机捕获到的画面，是基于<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturevideopreviewlayer">AVCaptureVideoPreviewLayer</a>类，它是<code>CALayer</code>的子类。它通过<code>session</code>属性与captureSession交互。</p>
 <p>你可以以直接操作<code>CALayer</code>的方式，初始化previewLayer，设置<code>session</code>属性，然后<code>self.view.layer.addSubLayer(previewLayer)</code>的方式使用，也可以：</p>
-<pre><code class="swift">// 苹果官方Demo给出的方案
-class PreviewView: UIView &#123;
-    override class var layerClass: AnyClass &#123;
-        return AVCaptureVideoPreviewLayer.self
-    &#125;
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// 苹果官方Demo给出的方案</span>
+<span class="token keyword">class</span> <span class="token class-name">PreviewView</span><span class="token punctuation">:</span> <span class="token builtin">UIView</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">override</span> <span class="token keyword">class</span> <span class="token class-name">var</span> layerClass<span class="token punctuation">:</span> <span class="token builtin">AnyClass</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token builtin">AVCaptureVideoPreviewLayer</span><span class="token punctuation">.</span><span class="token keyword">self</span>
+    <span class="token punctuation">&#125;</span>
     
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer &#123;
-        return layer as! AVCaptureVideoPreviewLayer
-    &#125;
-&#125;
+    <span class="token keyword">var</span> videoPreviewLayer<span class="token punctuation">:</span> <span class="token builtin">AVCaptureVideoPreviewLayer</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> layer <span class="token keyword">as</span><span class="token operator">!</span> <span class="token builtin">AVCaptureVideoPreviewLayer</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-class TakePhotoViewController: UIViewController &#123;
-    var videoPreviewView: PreviewView &#123;
-        return self.view as! PreviewView
-    &#125;
+<span class="token keyword">class</span> <span class="token class-name">TakePhotoViewController</span><span class="token punctuation">:</span> <span class="token builtin">UIViewController</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> videoPreviewView<span class="token punctuation">:</span> <span class="token builtin">PreviewView</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">self</span><span class="token punctuation">.</span>view <span class="token keyword">as</span><span class="token operator">!</span> <span class="token builtin">PreviewView</span>
+    <span class="token punctuation">&#125;</span>
     
-    override func loadView() &#123;
-        let previewView = PreviewView(frame: CGRect.zero)
-        // 配置预览页面的显示模式，类似于UIView的ContentMode
-        previewView.videoGravity = .resize
-        self.view = view
-    &#125;
-&#125;
-</code></pre>
+    <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">loadView</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> previewView <span class="token operator">=</span> <span class="token function">PreviewView</span><span class="token punctuation">(</span>frame<span class="token punctuation">:</span> <span class="token builtin">CGRect</span><span class="token punctuation">.</span>zero<span class="token punctuation">)</span>
+        <span class="token comment">// 配置预览页面的显示模式，类似于UIView的ContentMode</span>
+        previewView<span class="token punctuation">.</span>videoGravity <span class="token operator">=</span> <span class="token punctuation">.</span>resize
+        <span class="token keyword">self</span><span class="token punctuation">.</span>view <span class="token operator">=</span> view
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>然后是设置session：</p>
-<pre><code class="swift">self.videoPreviewView.videoPreviewLayer.session = self.captureSession
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">self</span><span class="token punctuation">.</span>videoPreviewView<span class="token punctuation">.</span>videoPreviewLayer<span class="token punctuation">.</span>session <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>captureSession<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <blockquote>
 <p>请注意，如果你的拍照页面支持横向拍摄的话，请使用<code>AVCaptureVideoPreviewLayer</code>的connection属性来获得当前设备拍摄朝向。</p>
-<pre><code class="swift">// 在进入sessionQueue之前取得这个属性，是为了确保UI级别的操作都在主线程进行，session的操作都在sessionQueue进行。
-let videoPreviewLayerOrientation = videoPreviewView.videoPreviewLayer.connection?.videoOrientation
-sessionQueue.async &#123;
-    if let photoOutputConnection = self.photoOutput.connection(with: .video) &#123;
-                photoOutputConnection.videoOrientation = videoPreviewLayerOrientation!
-            &#125;
-&#125;
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// 在进入sessionQueue之前取得这个属性，是为了确保UI级别的操作都在主线程进行，session的操作都在sessionQueue进行。</span>
+<span class="token keyword">let</span> videoPreviewLayerOrientation <span class="token operator">=</span> videoPreviewView<span class="token punctuation">.</span>videoPreviewLayer<span class="token punctuation">.</span>connection<span class="token operator">?</span><span class="token punctuation">.</span>videoOrientation
+sessionQueue<span class="token punctuation">.</span>async <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token keyword">let</span> photoOutputConnection <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>photoOutput<span class="token punctuation">.</span><span class="token function">connection</span><span class="token punctuation">(</span>with<span class="token punctuation">:</span> <span class="token punctuation">.</span>video<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                photoOutputConnection<span class="token punctuation">.</span>videoOrientation <span class="token operator">=</span> videoPreviewLayerOrientation<span class="token operator">!</span>
+            <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <h4 id="跑起来吧"><a href="#跑起来吧" class="headerlink" title="跑起来吧"></a>跑起来吧</h4><p>至此，基本的配置工作已经完成了，接下来就是让数据流在输入以及输出流中跑起来。</p>
-<pre><code class="swift">self.captureSession.startRunning()
-// 调用了startRunning()方法之后，即可以在设置的videoPreviewLayer上预览到实时的相机效果。
-// startRunning()以及stopRunning()方法都会阻塞当前线程，请确保是在sessionQueue里进行。
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">self</span><span class="token punctuation">.</span>captureSession<span class="token punctuation">.</span><span class="token function">startRunning</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 调用了startRunning()方法之后，即可以在设置的videoPreviewLayer上预览到实时的相机效果。</span>
+<span class="token comment">// startRunning()以及stopRunning()方法都会阻塞当前线程，请确保是在sessionQueue里进行。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="处理错误"><a href="#处理错误" class="headerlink" title="处理错误"></a>处理错误</h4><p>退出页面时，请记得调用captureSession的<code>stopRunning()</code>方法，因为应用在后台时调用相机，是被苹果禁止的，这也是未越狱的苹果设备上，没有“偷拍应用”的原因。</p>
 <p>另外需要注意的是，硬件的调用有可能被其他系统行为打断（比如有电话进来）。</p>
 <p><code>AVCaptureSession</code>类提供了一系列的<code>NotificationName</code>，其中包括session开始运行，结束运行，或者session被打断：</p>
-<pre><code class="swift">// startRunning()调用完成之后发送此通知
-static let AVCaptureSessionDidStartRunning: NSNotification.Name
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// startRunning()调用完成之后发送此通知</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> <span class="token builtin">AVCaptureSessionDidStartRunning</span><span class="token punctuation">:</span> <span class="token builtin">NSNotification</span><span class="token punctuation">.</span><span class="token builtin">Name</span>
 
-// stopRunning() 调用完成之后发送
-static let AVCaptureSessionDidStopRunning: NSNotification.Name
+<span class="token comment">// stopRunning() 调用完成之后发送</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> <span class="token builtin">AVCaptureSessionDidStopRunning</span><span class="token punctuation">:</span> <span class="token builtin">NSNotification</span><span class="token punctuation">.</span><span class="token builtin">Name</span>
 
-// session被打断，通知内的`userInfo`会带有AVCaptureSessionInterruptionReasonKey字段，其值是枚举值的rawValue，标识着被打断的原因。
-@available(iOS 9.0, *)
-    public enum InterruptionReason : Int &#123;
-        // 当前应用被退出到后台
-        case videoDeviceNotAvailableInBackground
-        // 被其他应用占用了音配输入设备，比如来电话了，或者系统闹铃响了
-        case audioDeviceInUseByAnotherClient
-        // 被其他captureSession占用了输入设备
-        case videoDeviceInUseByAnotherClient
-        // &quot;MultipleForegroundApps&quot;一般指的是iPad或者macOS上的分屏功能
-        case videoDeviceNotAvailableWithMultipleForegroundApps
-        // 被系统强制关闭
-        @available(iOS 11.1, *)
-        case videoDeviceNotAvailableDueToSystemPressure
-    &#125;
-static let AVCaptureSessionWasInterrupted: NSNotification.Name
+<span class="token comment">// session被打断，通知内的`userInfo`会带有AVCaptureSessionInterruptionReasonKey字段，其值是枚举值的rawValue，标识着被打断的原因。</span>
+@<span class="token function">available</span><span class="token punctuation">(</span>iOS <span class="token number">9.0</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token builtin">InterruptionReason</span> <span class="token punctuation">:</span> <span class="token builtin">Int</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 当前应用被退出到后台</span>
+        <span class="token keyword">case</span> videoDeviceNotAvailableInBackground
+		<span class="token comment">// 被其他应用占用了音配输入设备，比如来电话了，或者系统闹铃响了</span>
+        <span class="token keyword">case</span> audioDeviceInUseByAnotherClient
+		<span class="token comment">// 被其他captureSession占用了输入设备</span>
+        <span class="token keyword">case</span> videoDeviceInUseByAnotherClient
+		<span class="token comment">// "MultipleForegroundApps"一般指的是iPad或者macOS上的分屏功能</span>
+        <span class="token keyword">case</span> videoDeviceNotAvailableWithMultipleForegroundApps
+		<span class="token comment">// 被系统强制关闭</span>
+        @<span class="token function">available</span><span class="token punctuation">(</span>iOS <span class="token number">11.1</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">)</span>
+        <span class="token keyword">case</span> videoDeviceNotAvailableDueToSystemPressure
+    <span class="token punctuation">&#125;</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> <span class="token builtin">AVCaptureSessionWasInterrupted</span><span class="token punctuation">:</span> <span class="token builtin">NSNotification</span><span class="token punctuation">.</span><span class="token builtin">Name</span>
 
-// “打断”结束了
-static let AVCaptureSessionInterruptionEnded: NSNotification.Name
+<span class="token comment">// “打断”结束了</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> <span class="token builtin">AVCaptureSessionInterruptionEnded</span><span class="token punctuation">:</span> <span class="token builtin">NSNotification</span><span class="token punctuation">.</span><span class="token builtin">Name</span>
 
-NotificationCenter.default.addObserver(self, 
-                                       selector: #selector(self.sessionWasInterrupted), 
-                                       name: .AVCaptureSessionWasInterrupted, 
-                                       object: self.captureSession)
+<span class="token builtin">NotificationCenter</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">.</span><span class="token function">addObserver</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">,</span> 
+                                       selector<span class="token punctuation">:</span> #<span class="token function">selector</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>sessionWasInterrupted<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+                                       name<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token builtin">AVCaptureSessionWasInterrupted</span><span class="token punctuation">,</span> 
+                                       object<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">.</span>captureSession<span class="token punctuation">)</span>
 
-...
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 
-@objc func sessionWasInterrupted(_ note: Notification) &#123;
-    // 
-    if let reasonIntegerValue = notification.userInfo?[AVCaptureSessionInterruptionReasonKey] as? Int,
-    let reason = AVCaptureSession.InterruptionReason(rawValue: reasonIntegerValue) &#123;
-        switch reason &#123;
-            ...
-        &#125;
-    &#125;
-&#125;
-</code></pre>
+<span class="token atrule">@objc</span> <span class="token keyword">func</span> <span class="token function">sessionWasInterrupted</span><span class="token punctuation">(</span><span class="token number">_</span> note<span class="token punctuation">:</span> <span class="token builtin">Notification</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// </span>
+    <span class="token keyword">if</span> <span class="token keyword">let</span> reasonIntegerValue <span class="token operator">=</span> notification<span class="token punctuation">.</span>userInfo<span class="token operator">?</span><span class="token punctuation">[</span><span class="token builtin">AVCaptureSessionInterruptionReasonKey</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">Int</span><span class="token punctuation">,</span>
+    <span class="token keyword">let</span> reason <span class="token operator">=</span> <span class="token builtin">AVCaptureSession</span><span class="token punctuation">.</span><span class="token function">InterruptionReason</span><span class="token punctuation">(</span>rawValue<span class="token punctuation">:</span> reasonIntegerValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">switch</span> reason <span class="token punctuation">&#123;</span>
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h3 id="拍摄"><a href="#拍摄" class="headerlink" title="拍摄"></a>拍摄</h3><h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><p>创建一个<code>AVCapturePhotoSettings</code>类，并配置相关设置。这些设置将在拍照时使用，比如拍照时是否打开闪光灯等属性；</p>
-<pre><code class="swift">let capturePhotoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-capturePhotoSettings.isAutoRedEyeReductionEnabled = true
-capturePhotoSettings.isHighResolutionPhotoEnabled = true
-...
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> capturePhotoSettings <span class="token operator">=</span> <span class="token function">AVCapturePhotoSettings</span><span class="token punctuation">(</span>format<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">AVVideoCodecKey</span><span class="token punctuation">:</span> <span class="token builtin">AVVideoCodecType</span><span class="token punctuation">.</span>jpeg<span class="token punctuation">]</span><span class="token punctuation">)</span>
+capturePhotoSettings<span class="token punctuation">.</span>isAutoRedEyeReductionEnabled <span class="token operator">=</span> <span class="token boolean">true</span>
+capturePhotoSettings<span class="token punctuation">.</span>isHighResolutionPhotoEnabled <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 
-// 接下来应该是调用AVCapturePhotoOutput的capturePhoto方法
-photoOutput.capturePhoto(with: capturePhotoSettings, delegate: self)
-</code></pre>
+<span class="token comment">// 接下来应该是调用AVCapturePhotoOutput的capturePhoto方法</span>
+photoOutput<span class="token punctuation">.</span><span class="token function">capturePhoto</span><span class="token punctuation">(</span>with<span class="token punctuation">:</span> capturePhotoSettings<span class="token punctuation">,</span> delegate<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h5 id="Next-Step，使用NSData或者将照片保存到相册"><a href="#Next-Step，使用NSData或者将照片保存到相册" class="headerlink" title="Next Step，使用NSData或者将照片保存到相册"></a>Next Step，使用NSData或者将照片保存到相册</h5><p>遵循<code>AVCapturePhotoCaptureDelegate</code>并实现相关代理方法。一般来说我们只需要关心拍照结果：</p>
-<pre><code class="swift">func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) &#123;
-        
-        // photo.fileDataRepresentation()可用于获得拍照得到的NSData对象，可用于转化UIImage
-    // 请求相册权限，前文说了我们应该只在使用到相关功能的时候才会请求相关权限
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">func</span> <span class="token function">photoOutput</span><span class="token punctuation">(</span><span class="token number">_</span> output<span class="token punctuation">:</span> <span class="token builtin">AVCapturePhotoOutput</span><span class="token punctuation">,</span> didFinishProcessingPhoto photo<span class="token punctuation">:</span> <span class="token builtin">AVCapturePhoto</span><span class="token punctuation">,</span> error<span class="token punctuation">:</span> <span class="token builtin">Error</span><span class="token operator">?</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	
+		<span class="token comment">// photo.fileDataRepresentation()可用于获得拍照得到的NSData对象，可用于转化UIImage</span>
+    <span class="token comment">// 请求相册权限，前文说了我们应该只在使用到相关功能的时候才会请求相关权限</span>
 
-    guard error == nil else &#123; print(&quot;Error capturing photo: \(error!)&quot;); return &#125;
+    <span class="token keyword">guard</span> error <span class="token operator">==</span> <span class="token constant">nil</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Error capturing photo: <span class="token interpolation"><span class="token delimiter variable">\(</span>error<span class="token operator">!</span><span class="token delimiter variable">)</span></span>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token punctuation">&#125;</span>
 
-    PHPhotoLibrary.requestAuthorization &#123; status in
-        guard status == .authorized else &#123; return &#125;
+    <span class="token builtin">PHPhotoLibrary</span><span class="token punctuation">.</span>requestAuthorization <span class="token punctuation">&#123;</span> status <span class="token keyword">in</span>
+        <span class="token keyword">guard</span> status <span class="token operator">==</span> <span class="token punctuation">.</span>authorized <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token punctuation">&#125;</span>
         
-        PHPhotoLibrary.shared().performChanges(&#123;
-            // Add the captured photo&#39;s file data as the main resource for the Photos asset.
-            let creationRequest = PHAssetCreationRequest.forAsset()
-            creationRequest.addResource(with: .photo, data: photo.fileDataRepresentation()!, options: nil)
-        &#125;, completionHandler: self.handlePhotoLibraryError)
-    &#125;
-        
-&#125;
-</code></pre>
+        <span class="token builtin">PHPhotoLibrary</span><span class="token punctuation">.</span><span class="token function">shared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">performChanges</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">// Add the captured photo's file data as the main resource for the Photos asset.</span>
+            <span class="token keyword">let</span> creationRequest <span class="token operator">=</span> <span class="token builtin">PHAssetCreationRequest</span><span class="token punctuation">.</span><span class="token function">forAsset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            creationRequest<span class="token punctuation">.</span><span class="token function">addResource</span><span class="token punctuation">(</span>with<span class="token punctuation">:</span> <span class="token punctuation">.</span>photo<span class="token punctuation">,</span> data<span class="token punctuation">:</span> photo<span class="token punctuation">.</span><span class="token function">fileDataRepresentation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">,</span> options<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> completionHandler<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">.</span>handlePhotoLibraryError<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    	
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><code>AVCapturePhotoCaptureDelegate</code>的其他代理方法是用来追踪拍照进度的，分别代表 开始曝光，结束曝光，开始处理，结束处理等时间点。</p>
 <p>若要拍摄Live Photo，请查看：<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/capturing_still_and_live_photos/capturing_and_saving_live_photos"><strong>官方文档</strong></a>。</p>
 
@@ -719,7 +730,7 @@ photoOutput.capturePhoto(with: capturePhotoSettings, delegate: self)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://likeSo.github.io/2019/05/19/Cameras%20and%20Media%20Capture/">https://likeSo.github.io/2019/05/19/Cameras%20and%20Media%20Capture/</a>
+                    <a href="https://likeSo.github.io/2019/05/19/cameras-and-media-capture/">https://likeSo.github.io/2019/05/19/cameras-and-media-capture/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -988,7 +999,7 @@ photoOutput.capturePhoto(with: capturePhotoSettings, delegate: self)
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/19/UserNotifications/">
+                <a href="/2019/05/19/usernotifications/">
                     <div class="card-image">
                         
                         
@@ -1254,13 +1265,13 @@ photoOutput.capturePhoto(with: capturePhotoSettings, delegate: self)
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/likeSo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:Random1996@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1270,7 +1281,7 @@ photoOutput.capturePhoto(with: capturePhotoSettings, delegate: self)
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2425532357" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2425532357" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1279,10 +1290,6 @@ photoOutput.capturePhoto(with: capturePhotoSettings, delegate: self)
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>
@@ -1443,7 +1450,13 @@ $(function () {
     
 
     
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     

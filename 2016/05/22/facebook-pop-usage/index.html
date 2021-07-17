@@ -472,7 +472,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
@@ -485,23 +493,23 @@
 <pre> pod 'pop' </pre>
 <p>如果你是用的是Swift,记得在前面加上这么一行:</p>
 <pre> use_frameworks! </pre>
-
 <p><a target="_blank" rel="noopener" href="https://github.com/facebook/pop">这里</a>是pop的Github页面.</p>
 <h3 id="导入pop"><a href="#导入pop" class="headerlink" title="导入pop"></a>导入pop</h3><p>OC:</p>
-<pre><code class="Objective-C">#import    &lt;POP/POP.h&gt;
-</code></pre>
+<pre class="line-numbers language-objc" data-language="objc"><code class="language-objc">#import	&lt;POP&#x2F;POP.h&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>Swift:<br><code>import pop</code></p>
 <p>简单实现一个弹性动画:</p>
-<pre><code class="swift">        self.springAnimation = self.AnimationView.pop_animationForKey(&quot;popAnimation&quot;) as? POPSpringAnimation
-        if self.springAnimation == nil &#123;
-            self.springAnimation = POPSpringAnimation(propertyNamed: kPOPViewCenter)
-            self.springAnimation?.springSpeed = 20.0
-            self.springAnimation?.springBounciness = 25.0
-            self.AnimationView.pop_addAnimation(self.springAnimation, forKey: &quot;popAnimation&quot;)
-        &#125;
-        //self.springAnimation?.toValue = NSValue(CGPoint:self.AnimationView.center)
-        self.springAnimation?.toValue = NSValue(CGPoint: point!)
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">        <span class="token keyword">self</span><span class="token punctuation">.</span>springAnimation <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token builtin">AnimationView</span><span class="token punctuation">.</span><span class="token function">pop_animationForKey</span><span class="token punctuation">(</span><span class="token string">"popAnimation"</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">POPSpringAnimation</span>
+        <span class="token keyword">if</span> <span class="token keyword">self</span><span class="token punctuation">.</span>springAnimation <span class="token operator">==</span> <span class="token constant">nil</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>springAnimation <span class="token operator">=</span> <span class="token function">POPSpringAnimation</span><span class="token punctuation">(</span>propertyNamed<span class="token punctuation">:</span> <span class="token constant">kPOPViewCenter</span><span class="token punctuation">)</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>springAnimation<span class="token operator">?</span><span class="token punctuation">.</span>springSpeed <span class="token operator">=</span> <span class="token number">20.0</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>springAnimation<span class="token operator">?</span><span class="token punctuation">.</span>springBounciness <span class="token operator">=</span> <span class="token number">25.0</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token builtin">AnimationView</span><span class="token punctuation">.</span><span class="token function">pop_addAnimation</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>springAnimation<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> <span class="token string">"popAnimation"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+<span class="token comment">//self.springAnimation?.toValue = NSValue(CGPoint:self.AnimationView.center)</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>springAnimation<span class="token operator">?</span><span class="token punctuation">.</span>toValue <span class="token operator">=</span> <span class="token function">NSValue</span><span class="token punctuation">(</span><span class="token builtin">CGPoint</span><span class="token punctuation">:</span> point<span class="token operator">!</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <p><code>pop_animationForKey</code>:获取对象已存在相同key的POPAnimation对象,如果没有则返回nil</p>
 <p><code>propertyNamed</code>:是POPSpringAnimation继承自POPPropertyAnimation的方法,一般用于创建一个POP内置的动画property</p>
 <p><code>springSpeed</code>:弹性动画(POPSpringAnimation)的属性,用于控制动画速度</p>
@@ -511,19 +519,18 @@
 <p>***注意点:***动画的类型(property)需要与<code>fromValue</code>与<code>toValue</code>所对应,这里的property<code>kPOPViewCenter</code>顾名思义是把view的center作为要动画的值,所以<code>fromValue</code>与<code>toValue</code>需要的值应该是CGPoint(其接受AnyObject类型的值,所以使用NSValue来传递)的值.</p>
 <p><img src="/imgs/facebook-pop/pop_1.gif" alt="SpringAnimation.gif"></p>
 <p>衰减动画:</p>
-<pre><code class="swift">        self.decayAnimation = self.AnimationView.pop_animationForKey(&quot;popAnimation&quot;) as? POPDecayAnimation
-        if self.decayAnimation == nil &#123;
-            self.decayAnimation = POPDecayAnimation(propertyNamed: kPOPLayerPositionY)
-            self.decayAnimation?.velocity = NSNumber(double:300.0)
-            self.decayAnimation?.fromValue = NSNumber(double:100.0)
-            self.AnimationView.pop_addAnimation(self.decayAnimation, forKey: &quot;popAnimation&quot;)
-        &#125;
-        self.decayAnimation?.toValue = NSValue(CGPoint: point!)
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">        <span class="token keyword">self</span><span class="token punctuation">.</span>decayAnimation <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token builtin">AnimationView</span><span class="token punctuation">.</span><span class="token function">pop_animationForKey</span><span class="token punctuation">(</span><span class="token string">"popAnimation"</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">POPDecayAnimation</span>
+        <span class="token keyword">if</span> <span class="token keyword">self</span><span class="token punctuation">.</span>decayAnimation <span class="token operator">==</span> <span class="token constant">nil</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>decayAnimation <span class="token operator">=</span> <span class="token function">POPDecayAnimation</span><span class="token punctuation">(</span>propertyNamed<span class="token punctuation">:</span> <span class="token constant">kPOPLayerPositionY</span><span class="token punctuation">)</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>decayAnimation<span class="token operator">?</span><span class="token punctuation">.</span>velocity <span class="token operator">=</span> <span class="token function">NSNumber</span><span class="token punctuation">(</span>double<span class="token punctuation">:</span><span class="token number">300.0</span><span class="token punctuation">)</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span>decayAnimation<span class="token operator">?</span><span class="token punctuation">.</span>fromValue <span class="token operator">=</span> <span class="token function">NSNumber</span><span class="token punctuation">(</span>double<span class="token punctuation">:</span><span class="token number">100.0</span><span class="token punctuation">)</span>
+            <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token builtin">AnimationView</span><span class="token punctuation">.</span><span class="token function">pop_addAnimation</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>decayAnimation<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> <span class="token string">"popAnimation"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>decayAnimation<span class="token operator">?</span><span class="token punctuation">.</span>toValue <span class="token operator">=</span> <span class="token function">NSValue</span><span class="token punctuation">(</span><span class="token builtin">CGPoint</span><span class="token punctuation">:</span> point<span class="token operator">!</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>衰减动画(POPDecayAnimation)有一点特殊,他没有toValue只有fromValue,然后根据给定的速率(velocity)进行逐渐衰减,也就是说,不能直接控制动画的结束值.当然fromValue也是可以省略的,默认以当前值为fromValue<br>效果图:</p>
 <p><img src="/imgs/facebook-pop/pop_2.gif"></p>
 <p>POP所有的内置属性都定义在POPAnimatableProperty.h文件中,内置的其他property:</p>
-<pre><code class="Objective-C">extern NSString * const kPOPLayerBackgroundColor;
+<pre class="line-numbers language-Objective-C" data-language="Objective-C"><code class="language-Objective-C">extern NSString * const kPOPLayerBackgroundColor;
 extern NSString * const kPOPLayerBounds;
 extern NSString * const kPOPLayerCornerRadius;
 extern NSString * const kPOPLayerBorderWidth;
@@ -554,9 +561,9 @@ extern NSString * const kPOPLayerShadowOffset;
 extern NSString * const kPOPLayerShadowOpacity;
 extern NSString * const kPOPLayerShadowRadius;
 
-/**
+&#x2F;**
  Common CAShapeLayer property names.
- */
+ *&#x2F;
 extern NSString * const kPOPShapeLayerStrokeStart;
 extern NSString * const kPOPShapeLayerStrokeEnd;
 extern NSString * const kPOPShapeLayerStrokeColor;
@@ -564,17 +571,17 @@ extern NSString * const kPOPShapeLayerFillColor;
 extern NSString * const kPOPShapeLayerLineWidth;
 extern NSString * const kPOPShapeLayerLineDashPhase;
 
-/**
+&#x2F;**
  Common NSLayoutConstraint property names.
- */
+ *&#x2F;
 extern NSString * const kPOPLayoutConstraintConstant;
 
 
 #if TARGET_OS_IPHONE
 
-/**
+&#x2F;**
  Common UIView property names.
- */
+ *&#x2F;
 extern NSString * const kPOPViewAlpha;
 extern NSString * const kPOPViewBackgroundColor;
 extern NSString * const kPOPViewBounds;
@@ -586,52 +593,52 @@ extern NSString * const kPOPViewScaleY;
 extern NSString * const kPOPViewSize;
 extern NSString * const kPOPViewTintColor;
 
-/**
+&#x2F;**
  Common UIScrollView property names.
- */
+ *&#x2F;
 extern NSString * const kPOPScrollViewContentOffset;
 extern NSString * const kPOPScrollViewContentSize;
 extern NSString * const kPOPScrollViewZoomScale;
 extern NSString * const kPOPScrollViewContentInset;
 extern NSString * const kPOPScrollViewScrollIndicatorInsets;
 
-/**
+&#x2F;**
  Common UITableView property names.
- */
+ *&#x2F;
 extern NSString * const kPOPTableViewContentOffset;
 extern NSString * const kPOPTableViewContentSize;
 
-/**
+&#x2F;**
  Common UICollectionView property names.
- */
+ *&#x2F;
 extern NSString * const kPOPCollectionViewContentOffset;
 extern NSString * const kPOPCollectionViewContentSize;
 
-/**
+&#x2F;**
  Common UINavigationBar property names.
- */
+ *&#x2F;
 extern NSString * const kPOPNavigationBarBarTintColor;
 
-/**
+&#x2F;**
  Common UIToolbar property names.
- */
+ *&#x2F;
 extern NSString * const kPOPToolbarBarTintColor;
 
-/**
+&#x2F;**
  Common UITabBar property names.
- */
+ *&#x2F;
 extern NSString * const kPOPTabBarBarTintColor;
 
-/**
+&#x2F;**
  Common UILabel property names.
- */
+ *&#x2F;
 extern NSString * const kPOPLabelTextColor;
 
 #else
 
-/**
+&#x2F;**
  Common NSView property names.
- */
+ *&#x2F;
 extern NSString * const kPOPViewFrame;
 extern NSString * const kPOPViewBounds;
 extern NSString * const kPOPViewAlphaValue;
@@ -639,39 +646,38 @@ extern NSString * const kPOPViewFrameRotation;
 extern NSString * const kPOPViewFrameCenterRotation;
 extern NSString * const kPOPViewBoundsRotation;
 
-/**
+&#x2F;**
  Common NSWindow property names.
- */
+ *&#x2F;
 extern NSString * const kPOPWindowFrame;
 extern NSString * const kPOPWindowAlphaValue;
-extern NSString * const kPOPWindowBackgroundColor;
-</code></pre>
+extern NSString * const kPOPWindowBackgroundColor;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>所有内置属性都可以配合弹性动画/衰减动画/基础动画来使用.</p>
 <hr>
 <h3 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h3><p>pop提供了<code>POPAnimatableProperty</code>类,可用于自定义动画的属性,<br>其有三个属性,<code>readBlock</code>,<code>writeBlock</code>,常用的属性是前两个:</p>
-<pre><code class="swift">let property = POPAnimatableProperty.propertyWithName(&quot;property_name&quot;) &#123; (prop) in
-            prop.writeBlock = &#123;(object,value) in
-                //在这里获取目标值并设置动画属性,也可以理解为动画的实现部分
-            &#125;
-            prop.readBlock = &#123;(object,value) in
-                //在这里设置动画属性所需要的值,如果animation设置了fromValue则此属性可选设置
-            &#125;
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> property <span class="token operator">=</span> <span class="token builtin">POPAnimatableProperty</span><span class="token punctuation">.</span><span class="token function">propertyWithName</span><span class="token punctuation">(</span><span class="token string">"property_name"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">(</span>prop<span class="token punctuation">)</span> <span class="token keyword">in</span>
+            prop<span class="token punctuation">.</span>writeBlock <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">(</span>object<span class="token punctuation">,</span>value<span class="token punctuation">)</span> <span class="token keyword">in</span>
+                <span class="token comment">//在这里获取目标值并设置动画属性,也可以理解为动画的实现部分</span>
+            <span class="token punctuation">&#125;</span>
+            prop<span class="token punctuation">.</span>readBlock <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">(</span>object<span class="token punctuation">,</span>value<span class="token punctuation">)</span> <span class="token keyword">in</span>
+                <span class="token comment">//在这里设置动画属性所需要的值,如果animation设置了fromValue则此属性可选设置</span>
+            <span class="token punctuation">&#125;</span>
 
-        &#125;
-</code></pre>
+        <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="实践-百分比倒计时动画实现"><a href="#实践-百分比倒计时动画实现" class="headerlink" title="实践:百分比倒计时动画实现"></a>实践:百分比倒计时动画实现</h4><p>我们现在View上面添加一个button,绑定点击事件,以下是button点击的方法实现:</p>
-<pre><code class="swift">        let basicAnimation = POPBasicAnimation.linearAnimation()
-        basicAnimation.property = POPAnimatableProperty.propertyWithName(&quot;linearCountdownAnimation&quot;, initializer: &#123; (property) in
-            property.writeBlock = &#123; (object,values) in//在这里设置动画内容
-                sender.setTitle(String(format:&quot;%.2f&quot;,values[0]) + &quot;%&quot;, forState: .Normal)
-            &#125;
-        &#125;) as! POPAnimatableProperty
-        basicAnimation.duration = 2.0
-        basicAnimation.fromValue = hasAnimated ? 100 : 0
-        basicAnimation.toValue = hasAnimated ? 0 : 100
-        sender.pop_addAnimation(basicAnimation, forKey: &quot;countdown&quot;)
-        hasAnimated = !hasAnimated
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> basicAnimation <span class="token operator">=</span> <span class="token builtin">POPBasicAnimation</span><span class="token punctuation">.</span><span class="token function">linearAnimation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+basicAnimation<span class="token punctuation">.</span>property <span class="token operator">=</span> <span class="token builtin">POPAnimatableProperty</span><span class="token punctuation">.</span><span class="token function">propertyWithName</span><span class="token punctuation">(</span><span class="token string">"linearCountdownAnimation"</span><span class="token punctuation">,</span> initializer<span class="token punctuation">:</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">(</span>property<span class="token punctuation">)</span> <span class="token keyword">in</span>
+    property<span class="token punctuation">.</span>writeBlock <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">(</span>object<span class="token punctuation">,</span>values<span class="token punctuation">)</span> <span class="token keyword">in</span><span class="token comment">//在这里设置动画内容</span>
+        sender<span class="token punctuation">.</span><span class="token function">setTitle</span><span class="token punctuation">(</span><span class="token function">String</span><span class="token punctuation">(</span>format<span class="token punctuation">:</span><span class="token string">"%.2f"</span><span class="token punctuation">,</span>values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"%"</span><span class="token punctuation">,</span> forState<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token builtin">Normal</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token keyword">as</span><span class="token operator">!</span> <span class="token builtin">POPAnimatableProperty</span>
+basicAnimation<span class="token punctuation">.</span>duration <span class="token operator">=</span> <span class="token number">2.0</span>
+basicAnimation<span class="token punctuation">.</span>fromValue <span class="token operator">=</span> hasAnimated <span class="token operator">?</span> <span class="token number">100</span> <span class="token punctuation">:</span> <span class="token number">0</span>
+basicAnimation<span class="token punctuation">.</span>toValue <span class="token operator">=</span> hasAnimated <span class="token operator">?</span> <span class="token number">0</span> <span class="token punctuation">:</span> <span class="token number">100</span>
+sender<span class="token punctuation">.</span><span class="token function">pop_addAnimation</span><span class="token punctuation">(</span>basicAnimation<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> <span class="token string">"countdown"</span><span class="token punctuation">)</span>
+hasAnimated <span class="token operator">=</span> <span class="token operator">!</span>hasAnimated<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>不放效果图是可耻的行为:<br><img src="/imgs/facebook-pop/pop_3.gif" alt="animation.gif"></p>
 <p>时间的倒计时效果跟这个实现原理一致,只需要把writeBlock内部给button的title的值转换为时间就好.<br>pop号称是可以对任何对象进行动画,并不局限于UI效果的体现,<em><strong>据说</strong></em>音频播放的渐入渐出效果也可以使用pop来实现,博主暂时还不得而知,如果各位看官了解如何实现的话,欢迎分享!</p>
 
@@ -1221,13 +1227,13 @@ extern NSString * const kPOPWindowBackgroundColor;
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/likeSo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:Random1996@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1237,7 +1243,7 @@ extern NSString * const kPOPWindowBackgroundColor;
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2425532357" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2425532357" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1246,10 +1252,6 @@ extern NSString * const kPOPWindowBackgroundColor;
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>
@@ -1410,7 +1412,13 @@ $(function () {
     
 
     
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     

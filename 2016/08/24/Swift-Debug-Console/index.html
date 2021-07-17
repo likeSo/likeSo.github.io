@@ -472,7 +472,15 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
@@ -482,29 +490,27 @@
 
 <p><img src="/imgs/swift-debug-console/console_1.png" alt="debug-console"></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>首先我们安装所需要的配置:</p>
-<h4 id="添加XCGLogger"><a href="#添加XCGLogger" class="headerlink" title="添加XCGLogger"></a>添加XCGLogger</h4><p>使用cocoapods添加就可以,在你的Podfile添加下面这句:</p>
-<pre><code class="ruby">pod &#39;XCGLogger&#39;,&#39;~&gt;3.5&#39;
-</code></pre>
+<h4 id="添加XCGLogger"><a href="#添加XCGLogger" class="headerlink" title="添加XCGLogger"></a>添加XCGLogger</h4><p>使用cocoapods添加就可以,在你的Podfile添加下面这句: </p>
+<pre class="line-numbers language-ruby" data-language="ruby"><code class="language-ruby">pod <span class="token string">'XCGLogger'</span><span class="token punctuation">,</span><span class="token string">'~>3.5'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="安装XcodeColors"><a href="#安装XcodeColors" class="headerlink" title="安装XcodeColors"></a>安装XcodeColors</h4><p>下载工程文件<a target="_blank" rel="noopener" href="https://github.com/DeepIT/XcodeColors">XcodeColors</a>,打开工程文件,run一下~~~<br>在Alcatraz中也可以找到,直接安装就好.</p>
 <h4 id="安装KZLinkedConsole"><a href="#安装KZLinkedConsole" class="headerlink" title="安装KZLinkedConsole"></a>安装KZLinkedConsole</h4><p>安装方法同上,链接在<a target="_blank" rel="noopener" href="https://github.com/krzysztofzablocki/KZLinkedConsole">这里</a>,Alcatraz中也能搜索到.</p>
 <h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>打印需要借助XCGLogger:</p>
-<pre><code class="swift">import XCGLogger
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">import</span> <span class="token builtin">XCGLogger</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>首先需要初始化log对象,XCGLogger的初始化看起来比较繁琐,但是十分见名知意:</p>
-<pre><code class="swift">let log = XCGLogger.defaultInstance()
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> log <span class="token operator">=</span> <span class="token builtin">XCGLogger</span><span class="token punctuation">.</span><span class="token function">defaultInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>此时只是获得了一个log对象,要想要使用的话还需要一些配置,它的配置方法看起来像是这个样子的:</p>
-<pre><code class="swift">log.setup(XCGLogger.LogLevel,
-                  showLogIdentifier: Bool,
-                  showFunctionName: Bool,
-                  showThreadName: Bool,
-                  showLogLevel: Bool,
-                  showFileNames: Bool,
-                  showLineNumbers: Bool,
-                  showDate: Bool,
-                  writeToFile: AnyObject?,
-                  fileLogLevel: XCGLogger.LogLevel?)
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">log<span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token builtin">XCGLogger</span><span class="token punctuation">.</span><span class="token builtin">LogLevel</span><span class="token punctuation">,</span>
+                  showLogIdentifier<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">,</span>
+                  showFunctionName<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">,</span>
+                  showThreadName<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">,</span>
+                  showLogLevel<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">,</span>
+                  showFileNames<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">,</span>
+                  showLineNumbers<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">,</span>
+                  showDate<span class="token punctuation">:</span> <span class="token builtin">Bool</span><span class="token punctuation">,</span>
+                  writeToFile<span class="token punctuation">:</span> <span class="token builtin">AnyObject</span><span class="token operator">?</span><span class="token punctuation">,</span>
+                  fileLogLevel<span class="token punctuation">:</span> <span class="token builtin">XCGLogger</span><span class="token punctuation">.</span><span class="token builtin">LogLevel</span><span class="token operator">?</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><code>showLogIdentifier</code>等后面的一个Bool参数,顾名思义,是决定是否输出一些附加信息的参数.<br>这里的<code>XCGLogger.LogLevel</code>表示打印输出的等级,<strong>枚举值</strong>,如果你设置了一个低等级的日志等级,那么高于此等级的日志打印就不会被输出了,XCGLogger的输出等级从高到低分别是:</p>
 <ul>
 <li><code>.Verbose</code></li>
@@ -516,60 +522,59 @@
 <li><code>.None</code></li>
 </ul>
 <p>XCGLogger的默认日志打印模式是没有颜色的,所以需要设置其以带颜色的模式打印:</p>
-<pre><code class="swift">log.xcodeColorsEnabled = true
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">log<span class="token punctuation">.</span>xcodeColorsEnabled <span class="token operator">=</span> <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>此时使用这些方法打印一些东西来看一下效果:</p>
-<pre><code class="swift">log.debug(&quot;Debug信息&quot;)
-log.warning(&quot;Warning信息&quot;)
-log.error(&quot;Error信息&quot;)
-log.info(&quot;一般内容信息&quot;)
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">log<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"Debug信息"</span><span class="token punctuation">)</span>
+log<span class="token punctuation">.</span><span class="token function">warning</span><span class="token punctuation">(</span><span class="token string">"Warning信息"</span><span class="token punctuation">)</span>
+log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"Error信息"</span><span class="token punctuation">)</span>
+log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"一般内容信息"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>此时的控制台看起来是这个样子的:</p>
 <p><img src="/imgs/swift-debug-console/console_2.png" alt="debug"></p>
 <p>看起来是有点意思了,但是颜色貌似有点不太和谐,所以XCGLogger提供了一个属性用于设定不同等级的log对应颜色的映射,设置一下,就像这样:</p>
-<pre><code class="swift"> log.xcodeColors = [
-            .Verbose: .lightGrey,
-            .Debug: .darkGrey,
-            .Info: .darkGreen,
-            .Warning: .orange,
-            .Error: .red,
-            .Severe: .whiteOnRed
-        ]
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">log<span class="token punctuation">.</span>xcodeColors <span class="token operator">=</span> <span class="token punctuation">[</span>
+           <span class="token punctuation">.</span><span class="token builtin">Verbose</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>lightGrey<span class="token punctuation">,</span>
+           <span class="token punctuation">.</span><span class="token builtin">Debug</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>darkGrey<span class="token punctuation">,</span>
+           <span class="token punctuation">.</span><span class="token builtin">Info</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>darkGreen<span class="token punctuation">,</span>
+           <span class="token punctuation">.</span><span class="token builtin">Warning</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>orange<span class="token punctuation">,</span>
+           <span class="token punctuation">.</span><span class="token builtin">Error</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>red<span class="token punctuation">,</span>
+           <span class="token punctuation">.</span><span class="token builtin">Severe</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>whiteOnRed
+       <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>现在按照同样的方式打印一下看看:</p>
 <p><img src="/imgs/swift-debug-console/console_3.png" alt="debug"></p>
 <p>以上实际上就是开头那张图片的效果的完整实现方式,但是有一个问题是:如果每次都setup,配置颜色的话,未免太麻烦了.</p>
 <h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><p>编写一个Logger.swift,内容如下:</p>
-<pre><code class="swift">public let log: XCGLogger = &#123;
-    let log = XCGLogger.defaultInstance()
-    let logPath : NSURL = cacheDirectory.URLByAppendingPathComponent(&quot;XCGLogger.Log&quot;)
-    #if DEBUG
-        log.setup(.Debug, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
-    #else
-        log.setup(.Severe, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">public</span> <span class="token keyword">let</span> log<span class="token punctuation">:</span> <span class="token builtin">XCGLogger</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> log <span class="token operator">=</span> <span class="token builtin">XCGLogger</span><span class="token punctuation">.</span><span class="token function">defaultInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> logPath <span class="token punctuation">:</span> <span class="token constant">NSURL</span> <span class="token operator">=</span> cacheDirectory<span class="token punctuation">.</span><span class="token function">URLByAppendingPathComponent</span><span class="token punctuation">(</span><span class="token string">"XCGLogger.Log"</span><span class="token punctuation">)</span>
+    #<span class="token keyword">if</span> <span class="token constant">DEBUG</span>
+        log<span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token builtin">Debug</span><span class="token punctuation">,</span> showThreadName<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> showLogLevel<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> showFileNames<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> showLineNumbers<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> writeToFile<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span>
+    #<span class="token keyword">else</span>
+        log<span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token builtin">Severe</span><span class="token punctuation">,</span> showThreadName<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> showLogLevel<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> showFileNames<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> showLineNumbers<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> writeToFile<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span>
     #endif
-    log.xcodeColorsEnabled = true
-    log.xcodeColors = [
-        .Verbose: .lightGrey,
-        .Debug: .darkGrey,
-        .Info: .darkGreen,
-        .Warning: .orange,
-        .Error: .red,
-        .Severe: .whiteOnRed
-    ]
-    return log
-&#125;()
+    log<span class="token punctuation">.</span>xcodeColorsEnabled <span class="token operator">=</span> <span class="token boolean">true</span>
+    log<span class="token punctuation">.</span>xcodeColors <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">.</span><span class="token builtin">Verbose</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>lightGrey<span class="token punctuation">,</span>
+        <span class="token punctuation">.</span><span class="token builtin">Debug</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>darkGrey<span class="token punctuation">,</span>
+        <span class="token punctuation">.</span><span class="token builtin">Info</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>darkGreen<span class="token punctuation">,</span>
+        <span class="token punctuation">.</span><span class="token builtin">Warning</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>orange<span class="token punctuation">,</span>
+        <span class="token punctuation">.</span><span class="token builtin">Error</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>red<span class="token punctuation">,</span>
+        <span class="token punctuation">.</span><span class="token builtin">Severe</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>whiteOnRed
+    <span class="token punctuation">]</span>
+    <span class="token keyword">return</span> log
+<span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-private var documentsDirectory: NSURL &#123;
-    let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-    return urls[urls.endIndex-1]
-&#125;
+<span class="token keyword">private</span> <span class="token keyword">var</span> documentsDirectory<span class="token punctuation">:</span> <span class="token constant">NSURL</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> urls <span class="token operator">=</span> <span class="token builtin">NSFileManager</span><span class="token punctuation">.</span><span class="token function">defaultManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">URLsForDirectory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token builtin">DocumentDirectory</span><span class="token punctuation">,</span> inDomains<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token builtin">UserDomainMask</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> urls<span class="token punctuation">[</span>urls<span class="token punctuation">.</span>endIndex<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span>
 
-private var cacheDirectory: NSURL &#123;
-    let urls = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)
-    return urls[urls.endIndex-1]
-&#125;
-</code></pre>
+<span class="token keyword">private</span> <span class="token keyword">var</span> cacheDirectory<span class="token punctuation">:</span> <span class="token constant">NSURL</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> urls <span class="token operator">=</span> <span class="token builtin">NSFileManager</span><span class="token punctuation">.</span><span class="token function">defaultManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">URLsForDirectory</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token builtin">CachesDirectory</span><span class="token punctuation">,</span> inDomains<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token builtin">UserDomainMask</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> urls<span class="token punctuation">[</span>urls<span class="token punctuation">.</span>endIndex<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用:swift文件之间不需要import,所以使用可以直接log.debug(),log.info()…<br>因为其只是一个全局常量而已.</p>
 <p>–End Of File–</p>
 
@@ -598,7 +603,7 @@ private var cacheDirectory: NSURL &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://likeSo.github.io/2016/08/24/Swift-Debug-Console/">https://likeSo.github.io/2016/08/24/Swift-Debug-Console/</a>
+                    <a href="https://likeSo.github.io/2016/08/24/swift-debug-console/">https://likeSo.github.io/2016/08/24/swift-debug-console/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -811,7 +816,7 @@ private var cacheDirectory: NSURL &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2016/09/20/Create-Simple-Web-App-Using-Python/">
+                <a href="/2016/09/20/create-simple-web-app-using-python/">
                     <div class="card-image">
                         
                         
@@ -833,8 +838,12 @@ private var cacheDirectory: NSURL &#123;
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Aron
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    脚本语言
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -861,7 +870,7 @@ private var cacheDirectory: NSURL &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2016/06/07/Swift-Tips/">
+                <a href="/2016/06/07/swift-tips/">
                     <div class="card-image">
                         
                         
@@ -1116,13 +1125,13 @@ private var cacheDirectory: NSURL &#123;
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/likeSo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:Random1996@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1132,7 +1141,7 @@ private var cacheDirectory: NSURL &#123;
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2425532357" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2425532357" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1141,10 +1150,6 @@ private var cacheDirectory: NSURL &#123;
 
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>
@@ -1305,7 +1310,13 @@ $(function () {
     
 
     
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
 
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
     
 
     
