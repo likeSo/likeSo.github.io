@@ -232,75 +232,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -489,37 +426,35 @@
 <span id="more"></span>
 
 <h4 id="Swift导入"><a href="#Swift导入" class="headerlink" title="Swift导入:"></a>Swift导入:</h4><p>1),通过cocoapdos安装,如果不会用cocoapods的话可以去看看code4app的<a target="_blank" rel="noopener" href="http://code4app.com/article/cocoapods-install-usage">这篇博客</a><br>Podfile配置如下:</p>
-<pre><code class="ruby">platform :ios, &#39;8.0&#39;
-use_frameworks!
-target &#39;你的工程名称&#39; do
-pod &#39;SnapKit&#39;
-end
-</code></pre>
+<pre class="line-numbers language-ruby" data-language="ruby"><code class="language-ruby">platform <span class="token symbol">:ios</span><span class="token punctuation">,</span> <span class="token string">'8.0'</span>
+use_frameworks<span class="token operator">!</span>
+target <span class="token string">'你的工程名称'</span> <span class="token keyword">do</span>
+pod <span class="token string">'SnapKit'</span>
+<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>2),直接将SnapKit拖进工程目录,到SnapKit的<a target="_blank" rel="noopener" href="https://github.com/SnapKit/SnapKit">Github</a>点击Download Zip按钮下载SnapKit工程文件,解压后把其中的SnapKit.xcodeproj文件直接拖进工程即可.切记确保SnapKit工程下的所有需要的支持文件全都被拖过去了.(SnapKit工程本身不支持iOS7或之前的系统,如果需要支持iOS7的话请考虑此方法导入.)</p>
 <h4 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h4><p>举个小栗子,使一个相对当前View居中并且大小为200*100</p>
-<pre><code class="Swift">        let redView = UIView()
-        redView.backgroundColor = UIColor.redColor()
+<pre class="line-numbers language-Swift" data-language="Swift"><code class="language-Swift">        let redView &#x3D; UIView()
+        redView.backgroundColor &#x3D; UIColor.redColor()
         self.view.addSubview(redView)
         redView.snp_makeConstraints &#123; (make) in
-            make.edges.equalTo(self.view).inset(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))//将redView的边界约束为self.view并且每条边都是20的偏移
-        &#125;
-</code></pre>
+            make.edges.equalTo(self.view).inset(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))&#x2F;&#x2F;将redView的边界约束为self.view并且每条边都是20的偏移
+        &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <p>效果图:<br><img src="/imgs/snapkit-usage/snapkit_1.png" alt="效果图1"><br>当然,完全支持横屏,我这里就不放图片了.<br>与上面使用的edges相似的其他属性:<br>边界: left,right,top,bottom,edges,leading,trailing<br>(left与leading的区别,left始终代表view的左边,而leading代表view的布局起点,如果是从左到右布局则代表view的左边,其他的以此类推)<br>尺寸,大小:width,height,size<br>(如果需要在.equalTo或其他函数中使用这些属性,则要使用其对应的snp_top,snp_bottom…..版本)<br>优先级:priority,一般用在约束语句链的最后面,例如</p>
-<pre><code class="Swift">make.bottom.equalTo(self.view).priorityLow()//低优先级
-//也可以使用priority()方法传入具体优先级的级别,(0-1000)
-</code></pre>
+<pre class="line-numbers language-Swift" data-language="Swift"><code class="language-Swift">make.bottom.equalTo(self.view).priorityLow()&#x2F;&#x2F;低优先级
+&#x2F;&#x2F;也可以使用priority()方法传入具体优先级的级别,(0-1000)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>与equalTo相似的其他约束函数:<br>小于等于:lessThanOrEqualTo<br>大于等于:greaterThanOrEqualTo<br>我最经常使用lessThanOrEqualTo或者greaterThanOrEqualTo是针对于UILabel的约束,如果有这么个需求:文字长度如果短于某个值,则让label适应文字宽度,如果长于这个值的话,则让label的宽度固定,高度适应其文本,那么这里的”小于等于”就派上用场了,看代码:</p>
-<pre><code class="Swift">        self.label.text = &quot;这是一个很长的字符串&quot;
-         self.label.numberOfLines = 0
+<pre class="line-numbers language-Swift" data-language="Swift"><code class="language-Swift">        self.label.text &#x3D; &quot;这是一个很长的字符串&quot;
+self.label.numberOfLines &#x3D; 0
         self.view.addSubview(self.label)
         label.snp_makeConstraints &#123; (make) in
             make.center.equalTo(self.view)
-            make.width.lessThanOrEqualTo(self.view).offset(-50)//只需要约束宽度即可,这里约束的最大宽度为屏幕宽度-50,事实上如果没有其他需求的话针对于一个label来说只需要确定一个位置,不需要大小就可以认定这是一个完整的约束.(此技能目前我只知道针对于UILabel,UIImageView,UIButton有效)
-        &#125;
-</code></pre>
+            make.width.lessThanOrEqualTo(self.view).offset(-50)&#x2F;&#x2F;只需要约束宽度即可,这里约束的最大宽度为屏幕宽度-50,事实上如果没有其他需求的话针对于一个label来说只需要确定一个位置,不需要大小就可以认定这是一个完整的约束.(此技能目前我只知道针对于UILabel,UIImageView,UIButton有效)
+        &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>然后我们在控制器的touchesBegan里面这么写</p>
-<pre><code class="Swift">            self.label.text! += self.label.text!
-</code></pre>
+<pre class="line-numbers language-Swift" data-language="Swift"><code class="language-Swift">            self.label.text! +&#x3D; self.label.text!<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在初始状态的label:<br><img src="/imgs/snapkit-usage/snapkit_2.png"><br>多点几下就是这样<br><img src="/imgs/snapkit-usage/snapkit_3.png"></p>
 <h4 id="约束更新-amp-重做约束"><a href="#约束更新-amp-重做约束" class="headerlink" title="约束更新&amp;重做约束:"></a>约束更新&amp;重做约束:</h4><ul>
 <li>SnapKit内置snp_updateConstraints方法用来更新约束.其内部写法与加约束的方式一致,需要注意的是,所谓的更新也就意味着砸原有的基础上进行修改,所以说更新约束必须要和加约束的时候相对应,比如说你在snp_makeConstraints中给一个View加了一个针对于center的约束,在更新约束时就只能修改针对于这个center的约束,否则的话你只能得到一个警报</li>
@@ -529,10 +464,9 @@ end
 <p>一个比较常用的做法是,给ScrollView添加一个子View作为其contentView,给contentView的四周针对ScrollView添加约束,然后其他控件添加在contentView之内.这个方式不管是代码布局还是使用故事板都同样适用.</p>
 <p>对于一个Autolayout Based View，如何计算其本身的实际内容大小？</p>
 <blockquote>
-<pre><code class="swift">// UIView用于计算其内容大小的api，需要注意的是如果希望得到正确的结果，需要确保所有的subView之间的约束，可用于确定当前View的大小。
-func systemLayoutSizeFitting(_ targetSize: CGSize) -&gt; CGSize
-// 参数分别传入`UILayoutFittingExpandedSize`或者`UILayoutFittingCompressedSize`可用于获得其最大的可能大小或者最小的可能大小（一般来说就是内容实际占用的大小）。
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// UIView用于计算其内容大小的api，需要注意的是如果希望得到正确的结果，需要确保所有的subView之间的约束，可用于确定当前View的大小。</span>
+<span class="token keyword">func</span> <span class="token function">systemLayoutSizeFitting</span><span class="token punctuation">(</span><span class="token number">_</span> targetSize<span class="token punctuation">:</span> <span class="token builtin">CGSize</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">CGSize</span>
+<span class="token comment">// 参数分别传入`UILayoutFittingExpandedSize`或者`UILayoutFittingCompressedSize`可用于获得其最大的可能大小或者最小的可能大小（一般来说就是内容实际占用的大小）。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <p>AutoLayout针对于UILabel,UIImageView,UIButton来说,只需要确定其位置(x轴与y轴),便可以算是一个完整的约束,不同的是UILabel会根据其文字内容来确定控件大小,UIButton在没有标题的情况下同样如此,UIImageView以及设置了image的UIButton,一般会根据图片的大小来确定控件大小,所以对于带image的button以及UIImageView来说,最好还是要加上针对于四周的约束.<br>补充一点,有时候我们的需求是,不管是横屏还是竖屏,View刚好在导航栏下面,我们都知道导航栏加上状态栏是64的高度,而横屏状态下是没有状态栏的,针对这一点其实Masonry还有SnapKit都有针对这种情况的解决方案.在SnapKit的UIViewController+SnapKit.swift文件中,给UIViewController加了这样几个属性<br><code>snp_topLayoutGuideTop</code>//顾名思义,这里的topLayoutGuide一般指的是导航栏<br><code>snp_topLayoutGuideBottom</code><br><code>snp_bottomLayoutGuideTop</code>//这里的bottomLayoutGuide一般指的是Tabbar<br><code>snp_bottomLayoutGuideBottom</code><br>那么guideTop,guideBottom就是针对导航栏或者tabbar的顶部与底部</p>
 
@@ -762,6 +696,59 @@ func systemLayoutSizeFitting(_ targetSize: CGSize) -&gt; CGSize
     
 
     
+
+    
+        
+    <div id="SOHUCS"></div>
+    <script type="text/javascript">
+        window.onload = function () {
+            var loadChangYan = function () {
+                var appid = 'cyvyTEqqu';
+                var conf = 'a2fe1dc02d7f1aceb5950f17d148f0f4';
+                var width = window.innerWidth || document.documentElement.clientWidth;
+                if (width < 960) {
+                    var head = document.getElementsByTagName('head')[0] || document.head || document.documentElement;
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.charset = 'utf-8';
+                    script.id = 'changyan_mobile_js';
+                    script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid +
+                        '&conf=' + conf;
+                    head.appendChild(script);
+                } else {
+                    var loadJs = function (d, a) {
+                        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+                        var b = document.createElement("script");
+                        b.setAttribute("type", "text/javascript");
+                        b.setAttribute("charset", "UTF-8");
+                        b.setAttribute("src", d);
+                        if (typeof a === "function") {
+                            if (window.attachEvent) {
+                                b.onreadystatechange = function () {
+                                    var e = b.readyState;
+                                    if (e === "loaded" || e === "complete") {
+                                        b.onreadystatechange = null;
+                                        a()
+                                    }
+                                }
+                            } else {
+                                b.onload = a
+                            }
+                        }
+                        c.appendChild(b)
+                    };
+                    loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js", function () {
+                        window.changyan.api.config({
+                            appid: appid,
+                            conf: conf
+                        })
+                    });
+                }
+            }
+
+            loadChangYan();
+        }
+    </script>
 
     
 

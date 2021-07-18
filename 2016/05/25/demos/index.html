@@ -232,75 +232,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -499,30 +436,27 @@
 <h3 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h3><p>最终的效果:<img src="/imgs/demos/demos_1.gif" alt="Demo.gif"></p>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>下面是这个效果的实现部分</p>
 <h4 id="画一个圆形"><a href="#画一个圆形" class="headerlink" title="画一个圆形"></a>画一个圆形</h4><p>先看一个简单的方式:</p>
-<pre><code class="swift">let path = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 200, height: 200))
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> path <span class="token operator">=</span> <span class="token function">UIBezierPath</span><span class="token punctuation">(</span>ovalInRect<span class="token punctuation">:</span> <span class="token function">CGRect</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这个方式不仅可以画圆,画一个椭圆也是可以的,会根据给定的大小来决定是否为椭圆<br><code>UIBezierPath</code>仅仅提供了一个视图的路径,如果想要显示的话就要配合<code>CAShapeLayer</code>来使用:</p>
-<pre><code class="swift">        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.CGPath//设置shapeLayer的路径
-        shapeLayer.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
-        shapeLayer.lineWidth = 7.0//线条宽度
-        shapeLayer.lineCap = kCALineCapRound//线条顶端的样式
-        shapeLayer.strokeColor = UIColor.blackColor().CGColor//线条连接线的颜色
-        self.view.layer.addSublayer(shapeLayer)
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> shapeLayer <span class="token operator">=</span> <span class="token function">CAShapeLayer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      shapeLayer<span class="token punctuation">.</span>path <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token builtin">CGPath</span><span class="token comment">//设置shapeLayer的路径</span>
+      shapeLayer<span class="token punctuation">.</span>frame <span class="token operator">=</span> <span class="token function">CGRect</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">)</span>
+      shapeLayer<span class="token punctuation">.</span>lineWidth <span class="token operator">=</span> <span class="token number">7.0</span><span class="token comment">//线条宽度</span>
+      shapeLayer<span class="token punctuation">.</span>lineCap <span class="token operator">=</span> <span class="token constant">kCALineCapRound</span><span class="token comment">//线条顶端的样式</span>
+      shapeLayer<span class="token punctuation">.</span>strokeColor <span class="token operator">=</span> <span class="token builtin">UIColor</span><span class="token punctuation">.</span><span class="token function">blackColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">CGColor</span><span class="token comment">//线条连接线的颜色</span>
+      <span class="token keyword">self</span><span class="token punctuation">.</span>view<span class="token punctuation">.</span>layer<span class="token punctuation">.</span><span class="token function">addSublayer</span><span class="token punctuation">(</span>shapeLayer<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这个时候会出现一个圆形:<br><img src="/imgs/demos/demos_2.png" alt="圆形_1.png"></p>
 <p>现在设置一下填充区域的颜色:</p>
-<pre><code class="swift">shapeLayer.fillColor = UIColor.clearColor().CGColor
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">shapeLayer<span class="token punctuation">.</span>fillColor <span class="token operator">=</span> <span class="token builtin">UIColor</span><span class="token punctuation">.</span><span class="token function">clearColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">CGColor</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>一个真正的圆环出现了:</p>
 <p><img src="/imgs/demos/demos_3.png" alt="圆形_2.png"></p>
 <p>上面是使用的(较为)简单的方式创建UIBezierPath,下面介绍一个较为复杂的方式来实现这个效果:</p>
-<pre><code class="swift">        let path = UIBezierPath(arcCenter: CGPoint(x: 100, y: 100),//圆心坐标
-                                radius: 95,//半径,也可以理解为圆环的内侧距离圆心的距离
-                                startAngle: 0.0,//起始角度
-                                endAngle: CGFloat(M_PI) * 2.0,//结束角度
-                                clockwise: true)//是否顺时针绘制                             
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> path <span class="token operator">=</span> <span class="token function">UIBezierPath</span><span class="token punctuation">(</span>arcCenter<span class="token punctuation">:</span> <span class="token function">CGPoint</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//圆心坐标</span>
+                        radius<span class="token punctuation">:</span> <span class="token number">95</span><span class="token punctuation">,</span><span class="token comment">//半径,也可以理解为圆环的内侧距离圆心的距离</span>
+                        startAngle<span class="token punctuation">:</span> <span class="token number">0.0</span><span class="token punctuation">,</span><span class="token comment">//起始角度</span>
+                        endAngle<span class="token punctuation">:</span> <span class="token function">CGFloat</span><span class="token punctuation">(</span><span class="token constant">M_PI</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2.0</span><span class="token punctuation">,</span><span class="token comment">//结束角度</span>
+                        clockwise<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token comment">//是否顺时针绘制                             </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>关于这里的角度的部分参照这张图:</p>
 <p><img src="/imgs/demos/demos_4.png" alt="参照.png"></p>
 <h4 id="动画部分"><a href="#动画部分" class="headerlink" title="动画部分"></a>动画部分</h4><p>接下来需要涉及两个属性:<code>CAShapeLayer</code>的<code>strokeStart</code>以及<code>strokeEnd</code>属性,这两个属性都可以理解为视图绘制’进度’,不同的是前者代表开始绘制的进度,后者代表结束的,取值范围0-1,如果假如说我把<code>strokeEnd</code>设置为0.8,这里是效果图:</p>
@@ -540,62 +474,63 @@
 </code></pre>
 <p>可以看到,最后一句说明,这两个属性都可用于动画</p>
 <p>关于弹性动画的部分,主要利用POP的三个自带的动画属性<code>kPOPShapeLayerStrokeStart</code>,<code>kPOPShapeLayerStrokeEnd</code>,<br><code>kPOPShapeLayerStrokeColor</code>,这三个动画,配合计时器的使用,就可以达到本文中图一的效果,以下是主要代码:</p>
-<pre><code class="swift"> lazy var shapeLayer:CAShapeLayer = CAShapeLayer()
-    var timer:NSTimer?
-    
-    
-    override func viewDidLoad() &#123;
-        super.viewDidLoad()
-        setupView()
-        setupTimer()
-    &#125;
-    
-    private func setupTimer()&#123;
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.onTimerAction), userInfo: nil, repeats: true)
-    &#125;
-    
-    private func setupView()&#123;
-        let path = UIBezierPath(arcCenter: CGPoint(x: 100, y: 100),
-                                radius: 95,
-                                startAngle: 0.0,
-                                endAngle: CGFloat(M_PI) * 2.0,
-                                clockwise: true)
-        self.shapeLayer.path = path.CGPath
-        self.shapeLayer.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
-        self.shapeLayer.lineWidth = 7.0
-        self.shapeLayer.lineCap = kCALineCapRound
-        self.shapeLayer.strokeEnd = 0.5
-        self.shapeLayer.fillColor = UIColor.clearColor().CGColor
-        self.shapeLayer.strokeColor = UIColor.blackColor().CGColor
-        
-        self.view.layer.addSublayer(self.shapeLayer)
-    &#125;
-    
-    @objc private func onTimerAction(sender:NSTimer)&#123;
-        let strokeValue1 = randomFloatTo1()
-        let strokeValue2 = randomFloatTo1()
-        let strokeStartAnimation = POPSpringAnimation(propertyNamed: kPOPShapeLayerStrokeStart)
-        strokeStartAnimation.toValue = strokeValue1 &gt; strokeValue2 ? strokeValue2 : strokeValue1
-        strokeStartAnimation.springBounciness = 18.0
-        let strokeEndAnimation = POPSpringAnimation(propertyNamed: kPOPShapeLayerStrokeEnd)
-         strokeEndAnimation.toValue = strokeValue1 &gt; strokeValue2 ? strokeValue1 : strokeValue2
-        strokeEndAnimation.springBounciness = 18.0
-        let strokeColorAnimation = POPBasicAnimation(propertyNamed: kPOPShapeLayerStrokeColor)
-        strokeColorAnimation.toValue = randomColor().CGColor
-        
-        self.shapeLayer.pop_addAnimation(strokeStartAnimation, forKey: &quot;strokeStart&quot;)
-        self.shapeLayer.pop_addAnimation(strokeEndAnimation, forKey: &quot;strokeEnd&quot;)
-        self.shapeLayer.pop_addAnimation(strokeColorAnimation, forKey: &quot;strokeColor&quot;)
-    &#125;
-    
-    private func randomFloatTo1() -&gt; CGFloat &#123;
-        return CGFloat(arc4random() % 1001) / 1000.0
-    &#125;
-    
-    private func randomColor() -&gt; UIColor &#123;
-        return UIColor(red: randomFloatTo1(), green: randomFloatTo1(), blue: randomFloatTo1(), alpha: 0.8)
-    &#125;
-</code></pre>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">lazy</span> <span class="token keyword">var</span> shapeLayer<span class="token punctuation">:</span><span class="token builtin">CAShapeLayer</span> <span class="token operator">=</span> <span class="token function">CAShapeLayer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   <span class="token keyword">var</span> timer<span class="token punctuation">:</span><span class="token builtin">NSTimer</span><span class="token operator">?</span>
+   
+   
+   <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">viewDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+       <span class="token function">setupView</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+       <span class="token function">setupTimer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   <span class="token punctuation">&#125;</span>
+   
+   <span class="token keyword">private</span> <span class="token keyword">func</span> <span class="token function">setupTimer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+       <span class="token keyword">self</span><span class="token punctuation">.</span>timer <span class="token operator">=</span> <span class="token builtin">NSTimer</span><span class="token punctuation">.</span><span class="token function">scheduledTimerWithTimeInterval</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">,</span> selector<span class="token punctuation">:</span> #<span class="token function">selector</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>onTimerAction<span class="token punctuation">)</span><span class="token punctuation">,</span> userInfo<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">,</span> repeats<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+   <span class="token punctuation">&#125;</span>
+   
+   <span class="token keyword">private</span> <span class="token keyword">func</span> <span class="token function">setupView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+       <span class="token keyword">let</span> path <span class="token operator">=</span> <span class="token function">UIBezierPath</span><span class="token punctuation">(</span>arcCenter<span class="token punctuation">:</span> <span class="token function">CGPoint</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                               radius<span class="token punctuation">:</span> <span class="token number">95</span><span class="token punctuation">,</span>
+                               startAngle<span class="token punctuation">:</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+                               endAngle<span class="token punctuation">:</span> <span class="token function">CGFloat</span><span class="token punctuation">(</span><span class="token constant">M_PI</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2.0</span><span class="token punctuation">,</span>
+                               clockwise<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+       <span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">.</span>path <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token builtin">CGPath</span>
+       <span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">.</span>frame <span class="token operator">=</span> <span class="token function">CGRect</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> width<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span> height<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">)</span>
+       <span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">.</span>lineWidth <span class="token operator">=</span> <span class="token number">7.0</span>
+       <span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">.</span>lineCap <span class="token operator">=</span> <span class="token constant">kCALineCapRound</span>
+       <span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">.</span>strokeEnd <span class="token operator">=</span> <span class="token number">0.5</span>
+       <span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">.</span>fillColor <span class="token operator">=</span> <span class="token builtin">UIColor</span><span class="token punctuation">.</span><span class="token function">clearColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">CGColor</span>
+       <span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">.</span>strokeColor <span class="token operator">=</span> <span class="token builtin">UIColor</span><span class="token punctuation">.</span><span class="token function">blackColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">CGColor</span>
+       
+       <span class="token keyword">self</span><span class="token punctuation">.</span>view<span class="token punctuation">.</span>layer<span class="token punctuation">.</span><span class="token function">addSublayer</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">)</span>
+   <span class="token punctuation">&#125;</span>
+   
+   <span class="token atrule">@objc</span> <span class="token keyword">private</span> <span class="token keyword">func</span> <span class="token function">onTimerAction</span><span class="token punctuation">(</span>sender<span class="token punctuation">:</span><span class="token builtin">NSTimer</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+       <span class="token keyword">let</span> strokeValue1 <span class="token operator">=</span> <span class="token function">randomFloatTo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+       <span class="token keyword">let</span> strokeValue2 <span class="token operator">=</span> <span class="token function">randomFloatTo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+       <span class="token keyword">let</span> strokeStartAnimation <span class="token operator">=</span> <span class="token function">POPSpringAnimation</span><span class="token punctuation">(</span>propertyNamed<span class="token punctuation">:</span> <span class="token constant">kPOPShapeLayerStrokeStart</span><span class="token punctuation">)</span>
+       strokeStartAnimation<span class="token punctuation">.</span>toValue <span class="token operator">=</span> strokeValue1 <span class="token operator">></span> strokeValue2 <span class="token operator">?</span> strokeValue2 <span class="token punctuation">:</span> strokeValue1
+       strokeStartAnimation<span class="token punctuation">.</span>springBounciness <span class="token operator">=</span> <span class="token number">18.0</span>
+       <span class="token keyword">let</span> strokeEndAnimation <span class="token operator">=</span> <span class="token function">POPSpringAnimation</span><span class="token punctuation">(</span>propertyNamed<span class="token punctuation">:</span> <span class="token constant">kPOPShapeLayerStrokeEnd</span><span class="token punctuation">)</span>
+        strokeEndAnimation<span class="token punctuation">.</span>toValue <span class="token operator">=</span> strokeValue1 <span class="token operator">></span> strokeValue2 <span class="token operator">?</span> strokeValue1 <span class="token punctuation">:</span> strokeValue2
+       strokeEndAnimation<span class="token punctuation">.</span>springBounciness <span class="token operator">=</span> <span class="token number">18.0</span>
+       <span class="token keyword">let</span> strokeColorAnimation <span class="token operator">=</span> <span class="token function">POPBasicAnimation</span><span class="token punctuation">(</span>propertyNamed<span class="token punctuation">:</span> <span class="token constant">kPOPShapeLayerStrokeColor</span><span class="token punctuation">)</span>
+       strokeColorAnimation<span class="token punctuation">.</span>toValue <span class="token operator">=</span> <span class="token function">randomColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">CGColor</span>
+       
+       <span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">.</span><span class="token function">pop_addAnimation</span><span class="token punctuation">(</span>strokeStartAnimation<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> <span class="token string">"strokeStart"</span><span class="token punctuation">)</span>
+       <span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">.</span><span class="token function">pop_addAnimation</span><span class="token punctuation">(</span>strokeEndAnimation<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> <span class="token string">"strokeEnd"</span><span class="token punctuation">)</span>
+       <span class="token keyword">self</span><span class="token punctuation">.</span>shapeLayer<span class="token punctuation">.</span><span class="token function">pop_addAnimation</span><span class="token punctuation">(</span>strokeColorAnimation<span class="token punctuation">,</span> forKey<span class="token punctuation">:</span> <span class="token string">"strokeColor"</span><span class="token punctuation">)</span>
+   <span class="token punctuation">&#125;</span>
+   
+   <span class="token keyword">private</span> <span class="token keyword">func</span> <span class="token function">randomFloatTo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">CGFloat</span> <span class="token punctuation">&#123;</span>
+       <span class="token keyword">return</span> <span class="token function">CGFloat</span><span class="token punctuation">(</span><span class="token function">arc4random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">1001</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000.0</span>
+   <span class="token punctuation">&#125;</span>
+   
+   <span class="token keyword">private</span> <span class="token keyword">func</span> <span class="token function">randomColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">UIColor</span> <span class="token punctuation">&#123;</span>
+       <span class="token keyword">return</span> <span class="token function">UIColor</span><span class="token punctuation">(</span>red<span class="token punctuation">:</span> <span class="token function">randomFloatTo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> green<span class="token punctuation">:</span> <span class="token function">randomFloatTo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> blue<span class="token punctuation">:</span> <span class="token function">randomFloatTo1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> alpha<span class="token punctuation">:</span> <span class="token number">0.8</span><span class="token punctuation">)</span>
+   <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <p>使用此效果结合上一篇博客中的倒计时效果,也可以实现一个还算不错的进度条了.</p>
 
                 
@@ -832,6 +767,59 @@
     
 
     
+
+    
+        
+    <div id="SOHUCS"></div>
+    <script type="text/javascript">
+        window.onload = function () {
+            var loadChangYan = function () {
+                var appid = 'cyvyTEqqu';
+                var conf = 'a2fe1dc02d7f1aceb5950f17d148f0f4';
+                var width = window.innerWidth || document.documentElement.clientWidth;
+                if (width < 960) {
+                    var head = document.getElementsByTagName('head')[0] || document.head || document.documentElement;
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.charset = 'utf-8';
+                    script.id = 'changyan_mobile_js';
+                    script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid +
+                        '&conf=' + conf;
+                    head.appendChild(script);
+                } else {
+                    var loadJs = function (d, a) {
+                        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+                        var b = document.createElement("script");
+                        b.setAttribute("type", "text/javascript");
+                        b.setAttribute("charset", "UTF-8");
+                        b.setAttribute("src", d);
+                        if (typeof a === "function") {
+                            if (window.attachEvent) {
+                                b.onreadystatechange = function () {
+                                    var e = b.readyState;
+                                    if (e === "loaded" || e === "complete") {
+                                        b.onreadystatechange = null;
+                                        a()
+                                    }
+                                }
+                            } else {
+                                b.onload = a
+                            }
+                        }
+                        c.appendChild(b)
+                    };
+                    loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js", function () {
+                        window.changyan.api.config({
+                            appid: appid,
+                            conf: conf
+                        })
+                    });
+                }
+            }
+
+            loadChangYan();
+        }
+    </script>
 
     
 
