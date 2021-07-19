@@ -1,0 +1,1468 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="iOS User Notifications, aron">
+    <meta name="description" content="读不了万卷书，那就行万里路。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>iOS User Notifications | Aron&#39; Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Aron&#39; Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Aron&#39; Blog</div>
+        <div class="logo-desc">
+            
+            读不了万卷书，那就行万里路。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">iOS User Notifications</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/iOS/">
+                                <span class="chip bg-color">iOS</span>
+                            </a>
+                        
+                            <a href="/tags/Swift/">
+                                <span class="chip bg-color">Swift</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/iOS/" class="post-category">
+                                iOS
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-05-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="通知中心（UNUserNotifications）"><a href="#通知中心（UNUserNotifications）" class="headerlink" title="通知中心（UNUserNotifications）"></a>通知中心（UNUserNotifications）</h1><blockquote>
+<p>本框架记录的是苹果官方文档<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/usernotifications">UserNotifications</a>的阅读中文笔记, 以及相关自己的理解.</p>
+<p>本框架用于实现iOS APNs在iOS客户端的内容, 以及推送UI的定制.</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="请求通知权限"><a href="#请求通知权限" class="headerlink" title="请求通知权限"></a>请求通知权限</h2><blockquote>
+<p>在App启动时请求授权。</p>
+<p>Make your authorization request during your app’s launch cycle.</p>
+</blockquote>
+<p>苹果官方文档要求我们把请求权限的代码写在App启动后的相关方法内。</p>
+<p>使用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/usernotifications/unusernotificationcenter">UNUserNotificationCenter</a>来请求通知权限。<code>.current()</code>方法用以获取此类的单例对象。</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> center <span class="token operator">=</span> <span class="token builtin">UNUserNotificationCenter</span><span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 请求 显示通知，播放通知声音 的权限</span>
+center<span class="token punctuation">.</span><span class="token function">requestAuthorization</span><span class="token punctuation">(</span>options<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">.</span>alert<span class="token punctuation">,</span> <span class="token punctuation">.</span>sound<span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token punctuation">&#123;</span><span class="token punctuation">(</span>granted<span class="token punctuation">,</span> error<span class="token punctuation">)</span> <span class="token keyword">in</span>
+    
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="检查已请求权限的可用性"><a href="#检查已请求权限的可用性" class="headerlink" title="检查已请求权限的可用性"></a>检查已请求权限的可用性</h3><p>用户在第一次请求通知权限之后，后期是可以在系统设置里修改的。用户可以分别控制是否允许你的App开启通知声音，通知横幅，App角标等权限。</p>
+<p>检查权限所以使用的相关依赖依然是<code>UNUserNotificationCenter</code>。</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> center <span class="token operator">=</span> <span class="token builtin">UNUserNotificationCenter</span><span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+center<span class="token punctuation">.</span>getNotificationSettings <span class="token punctuation">&#123;</span> <span class="token punctuation">(</span>settings<span class="token punctuation">)</span> <span class="token keyword">in</span>                            
+    <span class="token keyword">guard</span> settings<span class="token punctuation">.</span>authorizationStatus <span class="token operator">==</span> <span class="token punctuation">.</span>authorized <span class="token keyword">else</span> <span class="token punctuation">&#123;</span><span class="token keyword">return</span><span class="token punctuation">&#125;</span>
+    <span class="token comment">/// 是否被允许在锁屏显示通知,取值enabled/disabled</span>
+	settings<span class="token punctuation">.</span>lockScreenSetting
+	<span class="token comment">/// 是否允许显示弹窗</span>
+	settings<span class="token punctuation">.</span>alertSetting
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="发送本地通知"><a href="#发送本地通知" class="headerlink" title="发送本地通知"></a>发送本地通知</h2><p>推送一个本地通知主要分为以下几步：</p>
+<ol>
+<li>创建<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/usernotifications/unmutablenotificationcontent"><code>UNMutableNotificationContent</code></a>对象，此对象用于描述通知的内容信息，比如标题和消息体。</li>
+<li>创建<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/usernotifications/unnotificationtrigger"><code>UNNotificationTrigger</code></a>对象（可选）。此对象用于指定通知的触发方式，比如具体时间，具体地点，甚至时间周期。</li>
+<li>创建<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/usernotifications/unnotificationrequest"><code>UNNotificationRequest</code></a>对象，此对象用于描述一个通知请求，请求会带上以上创建的两个对象。</li>
+<li>提交通知请求</li>
+</ol>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> notificationContent <span class="token operator">=</span> <span class="token function">UNMutableNotificationContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+notificationContent<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">"通知标题"</span>
+notificationContent<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">"通知内容"</span>
+
+<span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token function">DateComponents</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+date<span class="token punctuation">.</span>hour <span class="token operator">=</span> <span class="token number">8</span>
+date<span class="token punctuation">.</span>minute <span class="token operator">=</span> <span class="token number">30</span> 
+<span class="token comment">/// 在每天的8:30分，触发此通知</span>
+<span class="token keyword">let</span> trigger <span class="token operator">=</span> <span class="token function">UNCalendarNotificationTrigger</span><span class="token punctuation">(</span>dateMatching<span class="token punctuation">:</span> date<span class="token punctuation">,</span> repeats<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+
+<span class="token comment">/// identitier用于保证request的唯一性，以后可用于取消通知时使用。</span>
+<span class="token comment">/// 如果trigger参数为nil，则此通知立即发出。</span>
+<span class="token keyword">let</span> request <span class="token operator">=</span> <span class="token function">UNNotificationRequest</span><span class="token punctuation">(</span>identifier<span class="token punctuation">:</span> <span class="token function">UUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>uuidString<span class="token punctuation">,</span> 
+            content<span class="token punctuation">:</span> notificationContent<span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> trigger<span class="token punctuation">)</span>
+
+<span class="token builtin">UNUserNotificationCenter</span><span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token keyword">in</span> 
+	<span class="token keyword">if</span> error <span class="token operator">!=</span> <span class="token constant">nil</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// pass</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="定制通知行为"><a href="#定制通知行为" class="headerlink" title="定制通知行为"></a>定制通知行为</h2><h3 id="Actionable-notifications"><a href="#Actionable-notifications" class="headerlink" title="Actionable notifications"></a>Actionable notifications</h3><p><img src="/imgs/NotificationsUI/image-20190311101808714.png" alt="image-20190311101808714"></p>
+<h4 id="发送一个本地Actionable-Notification"><a href="#发送一个本地Actionable-Notification" class="headerlink" title="发送一个本地Actionable Notification"></a>发送一个本地Actionable Notification</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">/// identifier是此action的唯一标识符，title就是按钮的标题，options用于指定此按钮的一些行为，比如.authenticationRequired表示必须手机在解锁状态才能显示此按钮</span>
+<span class="token keyword">let</span> acceptAction <span class="token operator">=</span> <span class="token function">UNNotificationAction</span><span class="token punctuation">(</span>identifier<span class="token punctuation">:</span> <span class="token string">"ACCEPT_ACTION"</span><span class="token punctuation">,</span> title<span class="token punctuation">:</span> <span class="token string">"Accept"</span><span class="token punctuation">,</span> options<span class="token punctuation">:</span> <span class="token punctuation">.</span>authenticationRequired<span class="token punctuation">)</span>
+
+<span class="token comment">/// .destructive表示按钮具有破坏性行为，按钮会显示红色</span>
+<span class="token keyword">let</span> declineAction <span class="token operator">=</span> <span class="token function">UNNotificationAction</span><span class="token punctuation">(</span>identifier<span class="token punctuation">:</span> <span class="token string">"DECLINE_ACTION"</span><span class="token punctuation">,</span> title<span class="token punctuation">:</span> <span class="token string">"Decline"</span><span class="token punctuation">,</span> options<span class="token punctuation">:</span> <span class="token punctuation">.</span>destructive<span class="token punctuation">)</span>
+
+<span class="token comment">/// identifier是此通知类型的标识符，当通知(aps)的categoryIdentifier等于此值时，此通知类型会被应用，此通知类型包含两个按钮</span>
+<span class="token keyword">let</span> actionCategory <span class="token operator">=</span> <span class="token function">UNNotificationCategory</span><span class="token punctuation">(</span>identifier<span class="token punctuation">:</span> <span class="token string">"ACTION_CATEGORY"</span><span class="token punctuation">,</span> actions<span class="token punctuation">:</span> <span class="token punctuation">[</span>acceptAction<span class="token punctuation">,</span> <span class="token punctuation">,</span> declineAction<span class="token punctuation">]</span><span class="token punctuation">,</span> intentIdentifiers<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> hiddenPreviewsBodyPlaceholder<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> options<span class="token punctuation">:</span> <span class="token punctuation">.</span>allowInCarPlay<span class="token punctuation">)</span>
+
+<span class="token builtin">UNUserNotificationCenter</span><span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setNotificationCategories</span><span class="token punctuation">(</span><span class="token punctuation">[</span>actionCategory<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以上代码的作用，注册一个notificationCategory，该category的标识符为<code>ACTION_CATEGORY</code>，本地通知或者远程通知都可以指定标识符，用于指定该通知响应的notificationCategory。</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> content <span class="token operator">=</span> <span class="token function">UNMutableNotificationContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+content<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token string">"测试通知标题"</span>
+content<span class="token punctuation">.</span>body <span class="token operator">=</span> <span class="token string">"测试通知内容"</span>
+<span class="token comment">/// 发送此通知，即可触发上面添加的两个按钮，这里要保证categoryIdentifier和之前注册的时候填写的一致</span>
+content<span class="token punctuation">.</span>categoryIdentifier <span class="token operator">=</span> <span class="token string">"ACTION_CATEGORY"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="处理通知按钮点击事件"><a href="#处理通知按钮点击事件" class="headerlink" title="处理通知按钮点击事件"></a>处理通知按钮点击事件</h4><p>要处理通知按钮的点击行为，用户必须在程序启动完成之前注册代理，代理是<code>UNUserNotificationCenterDelegate</code>类型的对象，否则可能会错过程序启动时传入的通知。</p>
+<p>实现<code>optional func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -&gt; Void)</code>方法，并根据带来的通知处理结果，来规划按钮的点击逻辑。</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">func</span> <span class="token function">userNotificationCenter</span><span class="token punctuation">(</span><span class="token number">_</span> center<span class="token punctuation">:</span> <span class="token builtin">UNUserNotificationCenter</span><span class="token punctuation">,</span> didReceive response<span class="token punctuation">:</span> <span class="token builtin">UNNotificationResponse</span><span class="token punctuation">,</span> withCompletionHandler completionHandler<span class="token punctuation">:</span> @escaping <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    
+    <span class="token keyword">let</span> userInfo <span class="token operator">=</span> response<span class="token punctuation">.</span>notification<span class="token punctuation">.</span>request<span class="token punctuation">.</span>content<span class="token punctuation">.</span>userInfo
+    <span class="token comment">/// 这个就是点击的按钮的identifier</span>
+    <span class="token keyword">let</span> actionIdentifier <span class="token operator">=</span> response<span class="token punctuation">.</span>actionIdentifier
+    
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    
+    <span class="token function">completionHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="接收远程通知"><a href="#接收远程通知" class="headerlink" title="接收远程通知"></a>接收远程通知</h2><p>使远程通知也可以显示自定义按钮，后端开发人员需要保证发送来的通知内容与这个类似:</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>	
+    <span class="token property">"aps"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">/*这里的category等于上面写的categoryIdentifier*/</span>
+        <span class="token property">"category"</span><span class="token operator">:</span> <span class="token string">"ACTION_CATEGORY"</span><span class="token punctuation">,</span>
+        <span class="token property">"alert"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"通知标题"</span><span class="token punctuation">,</span>
+            <span class="token property">"body"</span><span class="token operator">:</span> <span class="token string">"通知内容"</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token property">"field1"</span><span class="token operator">:</span><span class="token string">"message"</span><span class="token punctuation">,</span>
+    <span class="token property">"field2"</span><span class="token operator">:</span><span class="token string">"message"</span>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>只要<code>payload</code>内的<code>category</code>字段与App内置对应的的<code>categoryIdentifier</code>匹配，收到此通知时下拉或者重按，即可出现按钮。</p>
+<h2 id="处理通知-前台"><a href="#处理通知-前台" class="headerlink" title="处理通知(前台)"></a>处理通知(前台)</h2><p>在前台的时候收到通知会回调这个方法：<a href="dash-apple-api://load?topic_id=1649518&language=swift">userNotificationCenter(_:willPresent:withCompletionHandler:)</a>，请注意，是<strong>收到通知</strong>而非点击通知。</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">func</span> <span class="token function">userNotificationCenter</span><span class="token punctuation">(</span><span class="token number">_</span> center<span class="token punctuation">:</span> <span class="token builtin">UNUserNotificationCenter</span><span class="token punctuation">,</span> willPresent notification<span class="token punctuation">:</span> <span class="token builtin">UNNotification</span><span class="token punctuation">,</span> withCompletionHandler completionHandler<span class="token punctuation">:</span> @escaping <span class="token punctuation">(</span><span class="token builtin">UNNotificationPresentationOptions</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  
+  <span class="token keyword">if</span> notification<span class="token punctuation">.</span>request<span class="token punctuation">.</span>content<span class="token punctuation">.</span>categoryIdentifier <span class="token operator">==</span> <span class="token string">"ACTION_CATEGORY"</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> field1 <span class="token operator">=</span> notification<span class="token punctuation">.</span>request<span class="token punctuation">.</span>content<span class="token punctuation">.</span>userInfo<span class="token punctuation">[</span><span class="token string">"field1"</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">String</span>
+    <span class="token keyword">let</span> field2 <span class="token operator">=</span> notification<span class="token punctuation">.</span>request<span class="token punctuation">.</span>content<span class="token punctuation">.</span>userInfo<span class="token punctuation">[</span><span class="token string">"field2"</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">String</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">&#125;</span>
+  
+  <span class="token comment">// completionHandler一定要调用，这个回调的参数决定了收到通知后的系统行为</span>
+  <span class="token comment">// completionHandler([])表示收到通知后没有系统动作</span>
+  <span class="token comment">// completionHandler([.sound])表示播放通知声音</span>
+  <span class="token function">completionHandler</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">.</span>sound<span class="token punctuation">,</span> <span class="token punctuation">.</span>badge<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="在App收到通知之前，修改通知的内容-payload"><a href="#在App收到通知之前，修改通知的内容-payload" class="headerlink" title="在App收到通知之前，修改通知的内容(payload)"></a>在App收到通知之前，修改通知的内容(payload)</h2><p>要实现这个类似于”拦截通知”的功能，你需要新建一个<strong>Notification Service Extension</strong>。</p>
+<p>在Xcode项目里，点选菜单栏File -&gt; New -&gt; Target， 然后选择<strong>Notification Service Extension</strong>，填写信息并完成创建。</p>
+<p>在Xcode为你新建的文件模板里，已经实现了基本的推送文案修改。</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">/// 使用此方法来修改通知信息，将最终的结果通过contentHandler回传给系统</span>
+<span class="token comment">/// 你可以在此方法内下载图片，或者电影等信息</span>
+<span class="token comment">/// 此方法有（不超过30s的)时间限制，需要在时限内调用contentHandler</span>
+<span class="token keyword">func</span> <span class="token function">didReceive</span><span class="token punctuation">(</span><span class="token number">_</span> request<span class="token punctuation">:</span> <span class="token builtin">UNNotificationRequest</span><span class="token punctuation">,</span> withContentHandler contentHandler<span class="token punctuation">:</span> @escaping <span class="token punctuation">(</span><span class="token builtin">UNNotificationContent</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">Void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/// 保存contentHandler,以便于下面那个方法内调用</span>
+	  <span class="token keyword">self</span><span class="token punctuation">.</span>contentHandler <span class="token operator">=</span> contentHandler
+  	<span class="token keyword">let</span> newContent <span class="token operator">=</span> request<span class="token punctuation">.</span>content<span class="token punctuation">.</span><span class="token function">mutableCopy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  	<span class="token comment">/// 下载完成后配置此条通知的附件📎,可用于显示图片,视频,或者音频等内容</span>
+  	<span class="token comment">///  参数里的URL必须是fileURL</span>
+	  <span class="token comment">///  options字典用于定义一些额外的配置,比如图片缩略图的裁剪区域等,具体配置定义在https://developer.apple.com/documentation/usernotifications/unnotificationattachment</span>
+  	<span class="token keyword">let</span> attachment <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">?</span> <span class="token function">UNNotificationAttachment</span><span class="token punctuation">(</span>identifier<span class="token punctuation">:</span> <span class="token function">UDID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>udidString<span class="token punctuation">,</span> url <span class="token constant">URL</span><span class="token punctuation">:</span> <span class="token function">URL</span><span class="token punctuation">(</span>fileURLWithPath<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span> options<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span>
+  	newContent<span class="token punctuation">.</span>attachments <span class="token operator">=</span> <span class="token punctuation">[</span>attachment<span class="token punctuation">]</span>
+		<span class="token comment">/// 最后一定要调用contentHandler</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/// 如果contentHandler在时限内没有调用，系统将会通过此方法通知app</span>
+<span class="token comment">/// 此方法内应当尽可能快的调用contentHandler，</span>
+<span class="token keyword">func</span> <span class="token function">serviceExtensionTimeWillExpire</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token keyword">let</span> contentHandler <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>contentHandler <span class="token punctuation">&#123;</span>
+    <span class="token function">contentHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>请注意,系统只会在你的APNs Payload内包含下列信息时,才会执行此拓展:</p>
+<ul>
+<li>必须包含<code>mutable-content</code>,且value为1;</li>
+<li>必须包含<code>alert</code>字典,且其中的<code>body</code>或者<code>title</code>必须有值;</li>
+</ul>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"aps"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"alert"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"通知标题"</span><span class="token punctuation">,</span>
+      <span class="token property">"body"</span><span class="token operator">:</span> <span class="token string">"通知内容"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"mutable-content"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"category"</span><span class="token operator">:</span> <span class="token string">"..."</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="自定义通知UI"><a href="#自定义通知UI" class="headerlink" title="自定义通知UI"></a>自定义通知UI</h1><p>要实现这个功能,你需要新建一个<strong>Notification Content Extension</strong>.</p>
+<p>在Xcode项目里，点选菜单栏File -&gt; New -&gt; Target， 然后选择<strong>Notification Content Extension</strong>，填写信息并完成创建。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># The file list we got after creation.
+├── Base.lproj
+│   └── MainInterface.storyboard
+├── Info.plist
+└── NotificationViewController.swift<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以下是注意事项:</p>
+<ul>
+<li>你不能在Extension里面自己新建ViewController文件,你也不能再storyboard里面新建scene,<strong>一个Notification Content Extension只能对应一种Notification Category.</strong></li>
+<li>你可以用新建多个Notification Content Extension的方式来实现多种通知UI的定制,需要注意的是,多个不同的extension,你需要保证所支持的Notification Category的唯一性.</li>
+</ul>
+<h2 id="修改UI样式"><a href="#修改UI样式" class="headerlink" title="修改UI样式"></a>修改UI样式</h2><p>你可以在<code>MainInterface.storyboard</code>或者<code>NotificationViewController.swift</code>中自定义UI,内容的高度可以根据autolayout自适应.</p>
+<p>UI的编写就跟一般的UIViewController是一样的,需要注意的应该就是这里的ViewController高度应该是刚刚好跟内容大小一致的,所以说对AutoLayout有一定的要求.</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">/// 此方法将会在第一次下拉通知以及后续有其他相关通知到达之后,被调用</span>
+<span class="token keyword">func</span> <span class="token function">didReceive</span><span class="token punctuation">(</span><span class="token number">_</span> notification<span class="token punctuation">:</span> <span class="token builtin">UNNotification</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">let</span> notificationTitle <span class="token operator">=</span> notification<span class="token punctuation">.</span>request<span class="token punctuation">.</span>content<span class="token punctuation">.</span>title
+  <span class="token keyword">let</span> notificationBody <span class="token operator">=</span> notification<span class="token punctuation">.</span>request<span class="token punctuation">.</span>content<span class="token punctuation">.</span>body
+  <span class="token keyword">let</span> attachments <span class="token operator">=</span> notification<span class="token punctuation">.</span>request<span class="token punctuation">.</span>content<span class="token punctuation">.</span>attachments
+  <span class="token comment">/// 根据通知标题,通知内容,以及附件等信息来配置通知的详情UI</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="为你的自定义UI指定所支持的通知类型"><a href="#为你的自定义UI指定所支持的通知类型" class="headerlink" title="为你的自定义UI指定所支持的通知类型"></a>为你的自定义UI指定所支持的通知类型</h2><p>前面说了,我们可以用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/usernotifications/unnotificationcategory">UNNotificationCategory</a>.<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/usernotifications/unnotificationcategory/1649276-identifier">identifier</a>来确定每一种通知的唯一性.</p>
+<p>当系统收到通知时,系统会匹配NotificationCategory的identifier,来确认其是否存在一个自定义通知UI.</p>
+<p>在<code>Info.plist</code>文件中,使用<code>UNNotificationExtensionCategory</code>字段指定此extension所支持的Notification Categroy.</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">...
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">></span></span>NSExtension<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dict</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">></span></span>NSExtensionAttributes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dict</span><span class="token punctuation">></span></span>
+      <span class="token comment">&lt;!-- 模板里面默认的此字段的类型是String,可以根据实际场景改为String Array --></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">></span></span>UNNotificationExtensionCategory<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">></span></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">></span></span>myNotificationCategory<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">></span></span>
+      
+      <span class="token comment">&lt;!--自己手动改成String Array,可以填写多个Notification Content Identifier--></span>
+      <span class="token comment">&lt;!--当任意一个identifier被匹配到时,当前extension都会被启动--></span>
+			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>key</span><span class="token punctuation">></span></span>UNNotificationExtensionCategory<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>key</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>array</span><span class="token punctuation">></span></span>
+      	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">></span></span>myNotificationCategory<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">></span></span>
+      	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">></span></span>myNotificationCategory1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">></span></span>
+      	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">></span></span>myNotificationCategory2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>array</span><span class="token punctuation">></span></span>
+      
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dict</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dict</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Aron</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://likeSo.github.io/2019/05/19/usernotifications/">https://likeSo.github.io/2019/05/19/usernotifications/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Aron</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/iOS/">
+                                    <span class="chip bg-color">iOS</span>
+                                </a>
+                            
+                                <a href="/tags/Swift/">
+                                    <span class="chip bg-color">Swift</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+    <div id="SOHUCS"></div>
+    <script type="text/javascript">
+        window.onload = function () {
+            var loadChangYan = function () {
+                var appid = 'cyvyTEqqu';
+                var conf = 'a2fe1dc02d7f1aceb5950f17d148f0f4';
+                var width = window.innerWidth || document.documentElement.clientWidth;
+                if (width < 960) {
+                    var head = document.getElementsByTagName('head')[0] || document.head || document.documentElement;
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.charset = 'utf-8';
+                    script.id = 'changyan_mobile_js';
+                    script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid +
+                        '&conf=' + conf;
+                    head.appendChild(script);
+                } else {
+                    var loadJs = function (d, a) {
+                        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+                        var b = document.createElement("script");
+                        b.setAttribute("type", "text/javascript");
+                        b.setAttribute("charset", "UTF-8");
+                        b.setAttribute("src", d);
+                        if (typeof a === "function") {
+                            if (window.attachEvent) {
+                                b.onreadystatechange = function () {
+                                    var e = b.readyState;
+                                    if (e === "loaded" || e === "complete") {
+                                        b.onreadystatechange = null;
+                                        a()
+                                    }
+                                }
+                            } else {
+                                b.onload = a
+                            }
+                        }
+                        c.appendChild(b)
+                    };
+                    loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js", function () {
+                        window.changyan.api.config({
+                            appid: appid,
+                            conf: conf
+                        })
+                    });
+                }
+            }
+
+            loadChangYan();
+        }
+    </script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/05/19/cameras-and-media-capture/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="iOS Cameras and Media Capture">
+                        
+                        <span class="card-title">iOS Cameras and Media Capture</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            摄像头与媒体捕捉
+本文记录的是苹果官方文档Cameras and Media Capture的阅读中文笔记, 以及相关自己的理解.
+本框架用于实现调用iOS设备的音频以及视频输入输出设备, 在屏幕上显示相机的实时预览, 以及拍照等功能.
+
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-05-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/iOS/" class="post-category">
+                                    iOS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/iOS/">
+                        <span class="chip bg-color">iOS</span>
+                    </a>
+                    
+                    <a href="/tags/Swift/">
+                        <span class="chip bg-color">Swift</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/04/25/uiautotesting/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="使用XCUITest进行UI自动化">
+                        
+                        <span class="card-title">使用XCUITest进行UI自动化</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-04-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Aron
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/iOS/">
+                        <span class="chip bg-color">iOS</span>
+                    </a>
+                    
+                    <a href="/tags/Swift/">
+                        <span class="chip bg-color">Swift</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Aron</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/likeSo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Random1996@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2425532357" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2425532357" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
