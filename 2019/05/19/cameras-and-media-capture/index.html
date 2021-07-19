@@ -1,0 +1,1458 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="iOS Cameras and Media Capture, aron">
+    <meta name="description" content="读不了万卷书，那就行万里路。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>iOS Cameras and Media Capture | Aron&#39; Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Aron&#39; Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Aron&#39; Blog</div>
+        <div class="logo-desc">
+            
+            读不了万卷书，那就行万里路。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">iOS Cameras and Media Capture</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/iOS/">
+                                <span class="chip bg-color">iOS</span>
+                            </a>
+                        
+                            <a href="/tags/Swift/">
+                                <span class="chip bg-color">Swift</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/iOS/" class="post-category">
+                                iOS
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-05-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="摄像头与媒体捕捉"><a href="#摄像头与媒体捕捉" class="headerlink" title="摄像头与媒体捕捉"></a>摄像头与媒体捕捉</h1><blockquote>
+<p>本文记录的是苹果官方文档<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture">Cameras and Media Capture</a>的阅读中文笔记, 以及相关自己的理解.</p>
+<p>本框架用于实现调用iOS设备的音频以及视频输入输出设备, 在屏幕上显示相机的实时预览, 以及拍照等功能.</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="请求媒体捕捉访问权限"><a href="#请求媒体捕捉访问权限" class="headerlink" title="请求媒体捕捉访问权限"></a>请求媒体捕捉访问权限</h2><h5 id="如果你的App要使用摄像头，需要在Info-plist文件的NSCameraUsageDescription指定使用摄像头的原因。"><a href="#如果你的App要使用摄像头，需要在Info-plist文件的NSCameraUsageDescription指定使用摄像头的原因。" class="headerlink" title="如果你的App要使用摄像头，需要在Info.plist文件的NSCameraUsageDescription指定使用摄像头的原因。"></a>如果你的App要使用摄像头，需要在Info.plist文件的NSCameraUsageDescription指定使用摄像头的原因。</h5><h5 id="如果你的App要使用麦克风，需要在Info-plist文件的NSMicrophoneUsageDescription指定使用麦克风的原因。"><a href="#如果你的App要使用麦克风，需要在Info-plist文件的NSMicrophoneUsageDescription指定使用麦克风的原因。" class="headerlink" title="如果你的App要使用麦克风，需要在Info.plist文件的NSMicrophoneUsageDescription指定使用麦克风的原因。"></a>如果你的App要使用麦克风，需要在Info.plist文件的NSMicrophoneUsageDescription指定使用麦克风的原因。</h5><p>请注意，如果没有指定对应API的使用原因，那么你在调用相关API时，系统会将你的App终结。</p>
+<h4 id="检查授权情况"><a href="#检查授权情况" class="headerlink" title="检查授权情况"></a>检查授权情况</h4><h5 id="苹果官方文档建议我们在使用以上这些API之前首先使用-AVCaptureDevice-authorizationStatus-for-检查应用权限的授予情况，如果没有被授予使用权限，需要使用AVCaptureDevice-requestAccess-for-completionHandler-来显示弹框，请求权限。"><a href="#苹果官方文档建议我们在使用以上这些API之前首先使用-AVCaptureDevice-authorizationStatus-for-检查应用权限的授予情况，如果没有被授予使用权限，需要使用AVCaptureDevice-requestAccess-for-completionHandler-来显示弹框，请求权限。" class="headerlink" title="苹果官方文档建议我们在使用以上这些API之前首先使用 AVCaptureDevice.authorizationStatus(for:) 检查应用权限的授予情况，如果没有被授予使用权限，需要使用AVCaptureDevice.requestAccess(for:completionHandler:)来显示弹框，请求权限。"></a>苹果官方文档建议我们在使用以上这些API之前首先使用 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice">AVCaptureDevice</a>.<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice/1624613-authorizationstatus">authorizationStatus(for:)</a> 检查应用权限的授予情况，如果没有被授予使用权限，需要使用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice">AVCaptureDevice</a>.<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice/1624584-requestaccess">requestAccess(for:completionHandler:)</a>来显示弹框，请求权限。</h5><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">switch</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token function">authorizationStatus</span><span class="token punctuation">(</span><span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>video<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">case</span> <span class="token punctuation">.</span>authorized<span class="token punctuation">:</span> <span class="token comment">// 用户之前已经授予了使用权限</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">setupCaptureSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">case</span> <span class="token punctuation">.</span>notDetermined<span class="token punctuation">:</span> <span class="token comment">// 还没有授予权限</span>
+    	<span class="token comment">// requestAccess方法将会显示系统的权限请求弹窗</span>
+    	<span class="token comment">// 要先配置Info.plist文件，添加NSCameraUsageDescription字段</span>
+    	<span class="token comment">// 先停止sessionQueue的进行</span>
+    	<span class="token keyword">self</span><span class="token punctuation">.</span>sessionQueue<span class="token punctuation">.</span><span class="token function">suspend</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token function">requestAccess</span><span class="token punctuation">(</span><span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>video<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> granted <span class="token keyword">in</span>
+            <span class="token keyword">if</span> granted <span class="token punctuation">&#123;</span>
+                <span class="token keyword">self</span><span class="token punctuation">.</span>sessionQueue<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">self</span><span class="token punctuation">.</span><span class="token function">setupCaptureSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">case</span> <span class="token punctuation">.</span>denied<span class="token punctuation">:</span> <span class="token comment">// 被拒绝</span>
+       	<span class="token keyword">self</span><span class="token punctuation">.</span>sessionQueue<span class="token punctuation">.</span><span class="token function">suspend</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+    <span class="token keyword">case</span> <span class="token punctuation">.</span>restricted<span class="token punctuation">:</span> <span class="token comment">// 因为某些原因无法授予权限</span>
+       	<span class="token keyword">self</span><span class="token punctuation">.</span>sessionQueue<span class="token punctuation">.</span><span class="token function">suspend</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>请注意，如果摄像或者拍照不是你的App的主要功能，那么你只能在会使用到相关功能的时候才可以请求权限。</p>
+<h4 id="请求保存媒体权限"><a href="#请求保存媒体权限" class="headerlink" title="请求保存媒体权限"></a>请求保存媒体权限</h4><p>如果是使用上述API拍摄的视频或者照片，请使用<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/photokit/phphotolibrary">PHPhotoLibrary</a>以及<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/photokit/phassetcreationrequest">PHAssetCreationRequest</a>类。这些类会使用到相册的读写权限，所以需要指定NSPhotoLibraryUsageDescription字段。</p>
+<p>如果只是想保存UIImage对象，请使用 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/1619125-uiimagewritetosavedphotosalbum">UIImageWriteToSavedPhotosAlbum(<em>:</em>:<em>:</em>:)</a> 方法，此方法会使用到相册的写入权限。请注意，如果图片对象来自AVFoundation（ <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturephotooutput">AVCapturePhotoOutput</a>），不推荐使用此方法写入，因为UIImage中不会包含图片中的全部信息。</p>
+<p>如果想保存一段视频，请使用 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/uikit/1619162-uisavevideoatpathtosavedphotosal">UISaveVideoAtPathToSavedPhotosAlbum(<em>:</em>:<em>:</em>:)</a> 方法，此方法同样会使用到相册的写入权限。</p>
+<p>以上两个方法都需要指定NSPhotoLibraryAddUsageDescription字段。</p>
+<h2 id="配置媒体捕获与输出设备"><a href="#配置媒体捕获与输出设备" class="headerlink" title="配置媒体捕获与输出设备"></a>配置媒体捕获与输出设备</h2><p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturesession">AVCaptureSession</a>类用于整合输入流（媒体输入设备，比如摄像头，麦克风）和输出流（媒体输出设备，比如相机预览，扬声器等），是输入流与输出流交互的管道。开发者通过<code>AVCaptureConnection</code>类将输入流额输出流绑定。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedevice">AVCaptureDevice</a>类代表了物理媒体捕获设备，比如相机以及麦克风。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturedeviceinput">AVCaptureDeviceInput</a>类代表一个输入流，它基于一个captureDevice，比如前置相机，话筒等。负责与captureSession交互。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcaptureoutput">AVCaptureDeviceOutput</a>类代表了一个输出流，这是一个抽象类，它描述的是媒体输出的方式，比如图片输出：<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturephotooutput">AVCapturePhotoOutput</a>，用于描述的是静态图像，Live Photo等媒体输出方式。</p>
+<p>所以初始化session之后，就是开始配置：</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// 固定语法，开始AVCaptureSession类的配置</span>
+captureSession<span class="token punctuation">.</span><span class="token function">beginConfiguration</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 获取后置的摄像头</span>
+<span class="token keyword">let</span> videoDevice <span class="token operator">=</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">(</span><span class="token punctuation">.</span>builtInWideAngleCamera<span class="token punctuation">,</span>
+                                          <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>video<span class="token punctuation">,</span> position<span class="token punctuation">:</span> <span class="token punctuation">.</span>unspecified<span class="token punctuation">)</span>
+<span class="token keyword">guard</span>
+    <span class="token keyword">let</span> videoDeviceInput <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">?</span> <span class="token function">AVCaptureDeviceInput</span><span class="token punctuation">(</span>device<span class="token punctuation">:</span> videoDevice<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token comment">// 在添加输出或者输入流之前必须检查是否可以添加</span>
+    captureSession<span class="token punctuation">.</span><span class="token function">canAddInput</span><span class="token punctuation">(</span>videoDeviceInput<span class="token punctuation">)</span>
+    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token punctuation">&#125;</span>
+captureSession<span class="token punctuation">.</span><span class="token function">addInput</span><span class="token punctuation">(</span>videoDeviceInput<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>AVCaptureDevice</code>的可选值有这些：</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// 内置麦克风</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> builtInMicrophone<span class="token punctuation">:</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token builtin">DeviceType</span>
+<span class="token comment">// 对于iPhone来说，指的是后置的摄像头</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> builtInWideAngleCamera<span class="token punctuation">:</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token builtin">DeviceType</span>
+<span class="token comment">// 后置双摄</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> builtInDualCamera<span class="token punctuation">:</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token builtin">DeviceType</span>
+<span class="token comment">// 这个就不用说了，粪叉以后带出来的TrueDepth摄像头</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> builtInTrueDepthCamera<span class="token punctuation">:</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token builtin">DeviceType</span>
+
+<span class="token comment">/// ... </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>一个captureSession可以配置多个输入以及输出流，比如需求是需要同时调用后置摄像头以及麦克风，你可以这样写：</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">captureSession<span class="token punctuation">.</span><span class="token function">beginConfiguration</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> photoDevice <span class="token operator">=</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">(</span><span class="token punctuation">.</span>builtInWideAngleCamera<span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>video<span class="token punctuation">,</span> position<span class="token punctuation">:</span> <span class="token punctuation">.</span>back<span class="token punctuation">)</span>
+<span class="token keyword">let</span> microphoneDevice <span class="token operator">=</span> <span class="token builtin">AVCaptureDevice</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">(</span><span class="token punctuation">.</span>builtInMicrophone<span class="token punctuation">,</span> <span class="token keyword">for</span><span class="token punctuation">:</span> <span class="token punctuation">.</span>audio<span class="token punctuation">,</span> position<span class="token punctuation">:</span> <span class="token punctuation">.</span>unspecified<span class="token punctuation">)</span>
+<span class="token keyword">guard</span> <span class="token keyword">let</span> photoDeviceInput <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">?</span> <span class="token function">AVCaptureDeviceInput</span><span class="token punctuation">(</span>device<span class="token punctuation">:</span> photoDevice<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+	  <span class="token keyword">let</span> microDeviceInput <span class="token operator">=</span> <span class="token keyword">try</span><span class="token operator">?</span> <span class="token function">AVCaptureDeviceInput</span><span class="token punctuation">(</span>device<span class="token punctuation">:</span> microphoneDevice<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  captureSession<span class="token punctuation">.</span><span class="token function">canAddInput</span><span class="token punctuation">(</span>photoDeviceInput<span class="token punctuation">)</span><span class="token punctuation">,</span>
+	  captureSession<span class="token punctuation">.</span><span class="token function">canAddInput</span><span class="token punctuation">(</span>microDeviceInput<span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span><span class="token keyword">return</span><span class="token punctuation">&#125;</span>
+captureSession<span class="token punctuation">.</span><span class="token function">addInput</span><span class="token punctuation">(</span>photoDeviceInput<span class="token punctuation">)</span>
+captureSession<span class="token punctuation">.</span><span class="token function">addInput</span><span class="token punctuation">(</span>microDeviceInput<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>下一步，添加输出流：</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> photoOutput <span class="token operator">=</span> <span class="token function">AVCapturePhotoOutput</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// photoOutput.isLivePhotoCaptureEnabled = photoOutput.isLivePhotoCaptureSupported</span>
+<span class="token comment">// photoOutput.isDepthDataDeliveryEnabled = photoOutput.isDepthDataDeliverySupported</span>
+<span class="token comment">// photoOutput.isPortraitEffectsMatteDeliveryEnabled = photoOutput.isPortraitEffectsMatteDeliverySupported</span>
+<span class="token comment">// 需要注意的是，如果你的应用支持切换前后摄像头的功能，以上这些属性都需要重新设置一次。</span>
+<span class="token keyword">guard</span> captureSession<span class="token punctuation">.</span><span class="token function">canAddOutput</span><span class="token punctuation">(</span>photoOutput<span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token punctuation">&#125;</span>
+captureSession<span class="token punctuation">.</span>sessionPreset <span class="token operator">=</span> <span class="token punctuation">.</span>photo
+captureSession<span class="token punctuation">.</span><span class="token function">addOutput</span><span class="token punctuation">(</span>photoOutput<span class="token punctuation">)</span>
+captureSession<span class="token punctuation">.</span><span class="token function">commitConfiguration</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出并不依赖于硬件，所以只需要添加一个输出流，配置完成之后调用<code>commitConfiguration</code>。这里只是进行了一个最基础的captureSession的配置，一般来说，只需要一个输入以及输出流，一个流程就算是走通了。</p>
+<p>视频格式的媒体捕获，对应的输出类型是<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturemoviefileoutput"><code>AVCaptureMovieFileOutput</code></a>。</p>
+<p>####显示相机预览 </p>
+<p>实时预览到相机捕获到的画面，是基于<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/avcapturevideopreviewlayer">AVCaptureVideoPreviewLayer</a>类，它是<code>CALayer</code>的子类。它通过<code>session</code>属性与captureSession交互。</p>
+<p>你可以以直接操作<code>CALayer</code>的方式，初始化previewLayer，设置<code>session</code>属性，然后<code>self.view.layer.addSubLayer(previewLayer)</code>的方式使用，也可以：</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// 苹果官方Demo给出的方案</span>
+<span class="token keyword">class</span> <span class="token class-name">PreviewView</span><span class="token punctuation">:</span> <span class="token builtin">UIView</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">override</span> <span class="token keyword">class</span> <span class="token class-name">var</span> layerClass<span class="token punctuation">:</span> <span class="token builtin">AnyClass</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token builtin">AVCaptureVideoPreviewLayer</span><span class="token punctuation">.</span><span class="token keyword">self</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">var</span> videoPreviewLayer<span class="token punctuation">:</span> <span class="token builtin">AVCaptureVideoPreviewLayer</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> layer <span class="token keyword">as</span><span class="token operator">!</span> <span class="token builtin">AVCaptureVideoPreviewLayer</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TakePhotoViewController</span><span class="token punctuation">:</span> <span class="token builtin">UIViewController</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> videoPreviewView<span class="token punctuation">:</span> <span class="token builtin">PreviewView</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">self</span><span class="token punctuation">.</span>view <span class="token keyword">as</span><span class="token operator">!</span> <span class="token builtin">PreviewView</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">loadView</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> previewView <span class="token operator">=</span> <span class="token function">PreviewView</span><span class="token punctuation">(</span>frame<span class="token punctuation">:</span> <span class="token builtin">CGRect</span><span class="token punctuation">.</span>zero<span class="token punctuation">)</span>
+        <span class="token comment">// 配置预览页面的显示模式，类似于UIView的ContentMode</span>
+        previewView<span class="token punctuation">.</span>videoGravity <span class="token operator">=</span> <span class="token punctuation">.</span>resize
+        <span class="token keyword">self</span><span class="token punctuation">.</span>view <span class="token operator">=</span> view
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后是设置session：</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">self</span><span class="token punctuation">.</span>videoPreviewView<span class="token punctuation">.</span>videoPreviewLayer<span class="token punctuation">.</span>session <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>captureSession<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>请注意，如果你的拍照页面支持横向拍摄的话，请使用<code>AVCaptureVideoPreviewLayer</code>的connection属性来获得当前设备拍摄朝向。</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// 在进入sessionQueue之前取得这个属性，是为了确保UI级别的操作都在主线程进行，session的操作都在sessionQueue进行。</span>
+<span class="token keyword">let</span> videoPreviewLayerOrientation <span class="token operator">=</span> videoPreviewView<span class="token punctuation">.</span>videoPreviewLayer<span class="token punctuation">.</span>connection<span class="token operator">?</span><span class="token punctuation">.</span>videoOrientation
+sessionQueue<span class="token punctuation">.</span>async <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token keyword">let</span> photoOutputConnection <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">.</span>photoOutput<span class="token punctuation">.</span><span class="token function">connection</span><span class="token punctuation">(</span>with<span class="token punctuation">:</span> <span class="token punctuation">.</span>video<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                photoOutputConnection<span class="token punctuation">.</span>videoOrientation <span class="token operator">=</span> videoPreviewLayerOrientation<span class="token operator">!</span>
+            <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="跑起来吧"><a href="#跑起来吧" class="headerlink" title="跑起来吧"></a>跑起来吧</h4><p>至此，基本的配置工作已经完成了，接下来就是让数据流在输入以及输出流中跑起来。</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">self</span><span class="token punctuation">.</span>captureSession<span class="token punctuation">.</span><span class="token function">startRunning</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 调用了startRunning()方法之后，即可以在设置的videoPreviewLayer上预览到实时的相机效果。</span>
+<span class="token comment">// startRunning()以及stopRunning()方法都会阻塞当前线程，请确保是在sessionQueue里进行。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="处理错误"><a href="#处理错误" class="headerlink" title="处理错误"></a>处理错误</h4><p>退出页面时，请记得调用captureSession的<code>stopRunning()</code>方法，因为应用在后台时调用相机，是被苹果禁止的，这也是未越狱的苹果设备上，没有“偷拍应用”的原因。</p>
+<p>另外需要注意的是，硬件的调用有可能被其他系统行为打断（比如有电话进来）。</p>
+<p><code>AVCaptureSession</code>类提供了一系列的<code>NotificationName</code>，其中包括session开始运行，结束运行，或者session被打断：</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token comment">// startRunning()调用完成之后发送此通知</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> <span class="token builtin">AVCaptureSessionDidStartRunning</span><span class="token punctuation">:</span> <span class="token builtin">NSNotification</span><span class="token punctuation">.</span><span class="token builtin">Name</span>
+
+<span class="token comment">// stopRunning() 调用完成之后发送</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> <span class="token builtin">AVCaptureSessionDidStopRunning</span><span class="token punctuation">:</span> <span class="token builtin">NSNotification</span><span class="token punctuation">.</span><span class="token builtin">Name</span>
+
+<span class="token comment">// session被打断，通知内的`userInfo`会带有AVCaptureSessionInterruptionReasonKey字段，其值是枚举值的rawValue，标识着被打断的原因。</span>
+@<span class="token function">available</span><span class="token punctuation">(</span>iOS <span class="token number">9.0</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token builtin">InterruptionReason</span> <span class="token punctuation">:</span> <span class="token builtin">Int</span> <span class="token punctuation">&#123;</span>
+		<span class="token comment">// 当前应用被退出到后台</span>
+        <span class="token keyword">case</span> videoDeviceNotAvailableInBackground
+		<span class="token comment">// 被其他应用占用了音配输入设备，比如来电话了，或者系统闹铃响了</span>
+        <span class="token keyword">case</span> audioDeviceInUseByAnotherClient
+		<span class="token comment">// 被其他captureSession占用了输入设备</span>
+        <span class="token keyword">case</span> videoDeviceInUseByAnotherClient
+		<span class="token comment">// "MultipleForegroundApps"一般指的是iPad或者macOS上的分屏功能</span>
+        <span class="token keyword">case</span> videoDeviceNotAvailableWithMultipleForegroundApps
+		<span class="token comment">// 被系统强制关闭</span>
+        @<span class="token function">available</span><span class="token punctuation">(</span>iOS <span class="token number">11.1</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">)</span>
+        <span class="token keyword">case</span> videoDeviceNotAvailableDueToSystemPressure
+    <span class="token punctuation">&#125;</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> <span class="token builtin">AVCaptureSessionWasInterrupted</span><span class="token punctuation">:</span> <span class="token builtin">NSNotification</span><span class="token punctuation">.</span><span class="token builtin">Name</span>
+
+<span class="token comment">// “打断”结束了</span>
+<span class="token keyword">static</span> <span class="token keyword">let</span> <span class="token builtin">AVCaptureSessionInterruptionEnded</span><span class="token punctuation">:</span> <span class="token builtin">NSNotification</span><span class="token punctuation">.</span><span class="token builtin">Name</span>
+
+<span class="token builtin">NotificationCenter</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">.</span><span class="token function">addObserver</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">,</span> 
+                                       selector<span class="token punctuation">:</span> #<span class="token function">selector</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">.</span>sessionWasInterrupted<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+                                       name<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token builtin">AVCaptureSessionWasInterrupted</span><span class="token punctuation">,</span> 
+                                       object<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">.</span>captureSession<span class="token punctuation">)</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token atrule">@objc</span> <span class="token keyword">func</span> <span class="token function">sessionWasInterrupted</span><span class="token punctuation">(</span><span class="token number">_</span> note<span class="token punctuation">:</span> <span class="token builtin">Notification</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// </span>
+    <span class="token keyword">if</span> <span class="token keyword">let</span> reasonIntegerValue <span class="token operator">=</span> notification<span class="token punctuation">.</span>userInfo<span class="token operator">?</span><span class="token punctuation">[</span><span class="token builtin">AVCaptureSessionInterruptionReasonKey</span><span class="token punctuation">]</span> <span class="token keyword">as</span><span class="token operator">?</span> <span class="token builtin">Int</span><span class="token punctuation">,</span>
+    <span class="token keyword">let</span> reason <span class="token operator">=</span> <span class="token builtin">AVCaptureSession</span><span class="token punctuation">.</span><span class="token function">InterruptionReason</span><span class="token punctuation">(</span>rawValue<span class="token punctuation">:</span> reasonIntegerValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">switch</span> reason <span class="token punctuation">&#123;</span>
+            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="拍摄"><a href="#拍摄" class="headerlink" title="拍摄"></a>拍摄</h3><h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><p>创建一个<code>AVCapturePhotoSettings</code>类，并配置相关设置。这些设置将在拍照时使用，比如拍照时是否打开闪光灯等属性；</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">let</span> capturePhotoSettings <span class="token operator">=</span> <span class="token function">AVCapturePhotoSettings</span><span class="token punctuation">(</span>format<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token builtin">AVVideoCodecKey</span><span class="token punctuation">:</span> <span class="token builtin">AVVideoCodecType</span><span class="token punctuation">.</span>jpeg<span class="token punctuation">]</span><span class="token punctuation">)</span>
+capturePhotoSettings<span class="token punctuation">.</span>isAutoRedEyeReductionEnabled <span class="token operator">=</span> <span class="token boolean">true</span>
+capturePhotoSettings<span class="token punctuation">.</span>isHighResolutionPhotoEnabled <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// 接下来应该是调用AVCapturePhotoOutput的capturePhoto方法</span>
+photoOutput<span class="token punctuation">.</span><span class="token function">capturePhoto</span><span class="token punctuation">(</span>with<span class="token punctuation">:</span> capturePhotoSettings<span class="token punctuation">,</span> delegate<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="Next-Step，使用NSData或者将照片保存到相册"><a href="#Next-Step，使用NSData或者将照片保存到相册" class="headerlink" title="Next Step，使用NSData或者将照片保存到相册"></a>Next Step，使用NSData或者将照片保存到相册</h5><p>遵循<code>AVCapturePhotoCaptureDelegate</code>并实现相关代理方法。一般来说我们只需要关心拍照结果：</p>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift"><span class="token keyword">func</span> <span class="token function">photoOutput</span><span class="token punctuation">(</span><span class="token number">_</span> output<span class="token punctuation">:</span> <span class="token builtin">AVCapturePhotoOutput</span><span class="token punctuation">,</span> didFinishProcessingPhoto photo<span class="token punctuation">:</span> <span class="token builtin">AVCapturePhoto</span><span class="token punctuation">,</span> error<span class="token punctuation">:</span> <span class="token builtin">Error</span><span class="token operator">?</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	
+		<span class="token comment">// photo.fileDataRepresentation()可用于获得拍照得到的NSData对象，可用于转化UIImage</span>
+    <span class="token comment">// 请求相册权限，前文说了我们应该只在使用到相关功能的时候才会请求相关权限</span>
+
+    <span class="token keyword">guard</span> error <span class="token operator">==</span> <span class="token constant">nil</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Error capturing photo: <span class="token interpolation"><span class="token delimiter variable">\(</span>error<span class="token operator">!</span><span class="token delimiter variable">)</span></span>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token punctuation">&#125;</span>
+
+    <span class="token builtin">PHPhotoLibrary</span><span class="token punctuation">.</span>requestAuthorization <span class="token punctuation">&#123;</span> status <span class="token keyword">in</span>
+        <span class="token keyword">guard</span> status <span class="token operator">==</span> <span class="token punctuation">.</span>authorized <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> <span class="token punctuation">&#125;</span>
+        
+        <span class="token builtin">PHPhotoLibrary</span><span class="token punctuation">.</span><span class="token function">shared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">performChanges</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">// Add the captured photo's file data as the main resource for the Photos asset.</span>
+            <span class="token keyword">let</span> creationRequest <span class="token operator">=</span> <span class="token builtin">PHAssetCreationRequest</span><span class="token punctuation">.</span><span class="token function">forAsset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            creationRequest<span class="token punctuation">.</span><span class="token function">addResource</span><span class="token punctuation">(</span>with<span class="token punctuation">:</span> <span class="token punctuation">.</span>photo<span class="token punctuation">,</span> data<span class="token punctuation">:</span> photo<span class="token punctuation">.</span><span class="token function">fileDataRepresentation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!</span><span class="token punctuation">,</span> options<span class="token punctuation">:</span> <span class="token constant">nil</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> completionHandler<span class="token punctuation">:</span> <span class="token keyword">self</span><span class="token punctuation">.</span>handlePhotoLibraryError<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    	
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>AVCapturePhotoCaptureDelegate</code>的其他代理方法是用来追踪拍照进度的，分别代表 开始曝光，结束曝光，开始处理，结束处理等时间点。</p>
+<p>若要拍摄Live Photo，请查看：<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/capturing_still_and_live_photos/capturing_and_saving_live_photos"><strong>官方文档</strong></a>。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Aron</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://likeSo.github.io/2019/05/19/cameras-and-media-capture/">https://likeSo.github.io/2019/05/19/cameras-and-media-capture/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Aron</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/iOS/">
+                                    <span class="chip bg-color">iOS</span>
+                                </a>
+                            
+                                <a href="/tags/Swift/">
+                                    <span class="chip bg-color">Swift</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+    <div id="SOHUCS"></div>
+    <script type="text/javascript">
+        window.onload = function () {
+            var loadChangYan = function () {
+                var appid = 'cyvyTEqqu';
+                var conf = 'a2fe1dc02d7f1aceb5950f17d148f0f4';
+                var width = window.innerWidth || document.documentElement.clientWidth;
+                if (width < 960) {
+                    var head = document.getElementsByTagName('head')[0] || document.head || document.documentElement;
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.charset = 'utf-8';
+                    script.id = 'changyan_mobile_js';
+                    script.src = 'https://cy-cdn.kuaizhan.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid +
+                        '&conf=' + conf;
+                    head.appendChild(script);
+                } else {
+                    var loadJs = function (d, a) {
+                        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+                        var b = document.createElement("script");
+                        b.setAttribute("type", "text/javascript");
+                        b.setAttribute("charset", "UTF-8");
+                        b.setAttribute("src", d);
+                        if (typeof a === "function") {
+                            if (window.attachEvent) {
+                                b.onreadystatechange = function () {
+                                    var e = b.readyState;
+                                    if (e === "loaded" || e === "complete") {
+                                        b.onreadystatechange = null;
+                                        a()
+                                    }
+                                }
+                            } else {
+                                b.onload = a
+                            }
+                        }
+                        c.appendChild(b)
+                    };
+                    loadJs("https://cy-cdn.kuaizhan.com/upload/changyan.js", function () {
+                        window.changyan.api.config({
+                            appid: appid,
+                            conf: conf
+                        })
+                    });
+                }
+            }
+
+            loadChangYan();
+        }
+    </script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/07/17/ios-network-interceptor/">
+                    <div class="card-image">
+                        
+                        <img src="/images/1.jpg" class="responsive-img" alt="使用NSURLProtocol实现网络请求拦截器">
+                        
+                        <span class="card-title">使用NSURLProtocol实现网络请求拦截器</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            全局拦截app内的网络请求，包括请求体和返回体，方便做统一处理。比如监听所有接口的返回体，如果包含了特定的字段，就执行某些操作。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-07-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Swift/" class="post-category">
+                                    Swift
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Network/">
+                        <span class="chip bg-color">Network</span>
+                    </a>
+                    
+                    <a href="/tags/Apple/">
+                        <span class="chip bg-color">Apple</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/05/19/usernotifications/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="iOS User Notifications">
+                        
+                        <span class="card-title">iOS User Notifications</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            通知中心（UNUserNotifications）
+本框架记录的是苹果官方文档UserNotifications的阅读中文笔记, 以及相关自己的理解.
+本框架用于实现iOS APNs在iOS客户端的内容, 以及推送UI的定制.
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-05-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/iOS/" class="post-category">
+                                    iOS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/iOS/">
+                        <span class="chip bg-color">iOS</span>
+                    </a>
+                    
+                    <a href="/tags/Swift/">
+                        <span class="chip bg-color">Swift</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Aron</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/likeSo" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Random1996@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2425532357" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2425532357" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
