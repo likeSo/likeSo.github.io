@@ -446,7 +446,7 @@
 </li>
 <li><p>如何跳转到某个页面，并删除之前的所有页面历史？（比如退出登录后回到首页）</p>
 <ul>
-<li>```tsx<br>import { useNavigation, CommonActions } from ‘@react-navigation/native’;// name就是要跳转的路由名字<br>// 这个方法实际上是重置页面历史的，index默认就是0，所以只有一个历史页面<br>navigation.dispatch(<pre><code>  CommonActions.reset(&#123; index: 0, routes: [&#123; name: &#39;PlaceOrder&#39; &#125;] &#125;)
+<li>```typescript<br>import { useNavigation, CommonActions } from ‘@react-navigation/native’;// name就是要跳转的路由名字<br>// 这个方法实际上是重置页面历史的，index默认就是0，所以只有一个历史页面<br>navigation.dispatch(<pre><code>  CommonActions.reset(&#123; index: 0, routes: [&#123; name: &#39;PlaceOrder&#39; &#125;] &#125;)
 );
 </code></pre>
 <pre class="line-numbers language-none"><code class="language-none">
@@ -461,7 +461,7 @@
 
   - 示例代码：
 
-  - &#96;&#96;&#96;ts
+  - &#96;&#96;&#96;typescript
     const SingleSelectBottomSheet &#x3D; React.forwardRef&lt;BottomSheetModal, SingleSelectBottomSheetProps&gt;((props, ref) &#x3D;&gt; &#123;
       &#x2F;&#x2F; 这样外部传入的ref，引用的其实是这个Modal，然后在外部就可以bottomSheet.present()
       return &lt; BottomSheetModal ref&#x3D;&#123;ref&#125; &#x2F;&gt;
@@ -470,7 +470,7 @@
 </li>
 <li><p>基于上个问题，如何ref我的子组件本身？我想调用子组件的方法？</p>
 <ul>
-<li><p>```ts<br>interface LoadingToastProperties {<br>  showLoading: () =&gt; void;<br>  hide: () =&gt; void;<br>}</p>
+<li><p>```typescript<br>interface LoadingToastProperties {<br>  showLoading: () =&gt; void;<br>  hide: () =&gt; void;<br>}</p>
 <p>interface LoadingToastProps {<br>  loadingText?: string;<br>}</p>
 <p>// forwardRef第一个参数是外界在使用这个ref时，能调用什么样的类型，<br>// 第二个参数时props类型<br>const LoadingToast =</p>
 <pre><code>  React.forwardRef&lt;LoadingToastProperties, LoadingToastProps&gt;((props, ref) =&gt; &#123;
@@ -496,7 +496,7 @@
 
   - useRoute泛型：
 
-    - &#96;&#96;&#96;tsx
+    - &#96;&#96;&#96;typescript
       const route &#x3D; useRoute&lt;RouteProp&lt;any, any&gt;&gt;();
       
       &#x2F;&#x2F; 上面这个写法，route.params是个any类型
@@ -512,7 +512,7 @@
       &#x2F;&#x2F; useRoute的方法定义用泛型就达到了这种效果，很神奇<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>useNavigation泛型：</p>
 </li>
-<li><p>```tsx<br>const navigation = useNavigation&lt;NavigationProp<any>&gt;();<br>// 暂时还没细看，总之这样不会报错了</p>
+<li><p>```typescript<br>const navigation = useNavigation&lt;NavigationProp<any>&gt;();<br>// 暂时还没细看，总之这样不会报错了</p>
 <pre class="line-numbers language-none"><code class="language-none">
 - 报错&#96;invalid language tag&#96;
 
@@ -527,7 +527,7 @@
 
 - 使用hook&#96;setState&#96;之后，不要立即使用新的state，新的state会在下一次渲染的时候才有效；
 
-  - &#96;&#96;&#96;tsx
+  - &#96;&#96;&#96;typescript
     setCountries(value.data.data);
     &#x2F;&#x2F;&#x2F; setState是异步的
     &#x2F;&#x2F;&#x2F; 这里不要立即使用countries，会产生undefined；
