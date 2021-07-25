@@ -446,30 +446,30 @@
 </li>
 <li><p>如何跳转到某个页面，并删除之前的所有页面历史？（比如退出登录后回到首页）</p>
 <ul>
-<li><blockquote>
-<p>```typescript<br>import { useNavigation, CommonActions } from ‘@react-navigation/native’;</p>
-<p>// name就是要跳转的路由名字<br>// 这个方法实际上是重置页面历史的，index默认就是0，所以只有一个历史页面<br>navigation.dispatch(</p>
-<pre><code>  CommonActions.reset(&#123; index: 0, routes: [&#123; name: &#39;PlaceOrder&#39; &#125;] &#125;)
+<li>```typescript<br>import { useNavigation, CommonActions } from ‘@react-navigation/native’;// name就是要跳转的路由名字<br>// 这个方法实际上是重置页面历史的，index默认就是0，所以只有一个历史页面<br>navigation.dispatch(<pre><code>  CommonActions.reset(&#123; index: 0, routes: [&#123; name: &#39;PlaceOrder&#39; &#125;] &#125;)
 );
 </code></pre>
-<pre class="line-numbers language-none"><code class="language-none">
+<pre class="line-numbers language-none"><code class="language-none">    
+  - 
+
 - &#96;TextInput&#96;默认情况下会在点击输入框范围之外消失，如何禁止这种行为？（比如点击输入框右侧的按钮清空文字，默认情况下，需要点击两次才能达到效果）
 
- - 如果不介意使用&#96;ScrollView&#96;的话，可以设置&#96;keyboardShouldPersistTaps&#x3D;&#123;&#39;always&#39;&#125;&#96;，然后&#96;keyboardDismissMode&#x3D;&#123;&#39;on-drag&#39;&#125;&#96;,这样点击就不会收回键盘了，拖动页面的时候才会收回。
- - 如果用了&#96;ScrollView&#96;但是不希望页面滚动的话，可以设置&#96;scrollEnabled&#x3D;&#123;false&#125;&#96;禁止滚动；
+  - 如果不介意使用&#96;ScrollView&#96;的话，可以设置&#96;keyboardShouldPersistTaps&#x3D;&#123;&#39;always&#39;&#125;&#96;，然后&#96;keyboardDismissMode&#x3D;&#123;&#39;on-drag&#39;&#125;&#96;,这样点击就不会收回键盘了，拖动页面的时候才会收回。
+  - 如果用了&#96;ScrollView&#96;但是不希望页面滚动的话，可以设置&#96;scrollEnabled&#x3D;&#123;false&#125;&#96;禁止滚动；
+  - 
 
 - 如何转发ref？（外部传入一个ref，我想将其绑定到我的一个子组件上？）
 
- - 使用&#96;React.forwardRef&lt;Ref类型，Props类型&gt;()&#96;
+  - 使用&#96;React.forwardRef&lt;Ref类型，Props类型&gt;()&#96;
 
- - 示例代码：
+  - 示例代码：
 
- - &#96;&#96;&#96;typescript
-   const SingleSelectBottomSheet &#x3D; React.forwardRef&lt;BottomSheetModal, SingleSelectBottomSheetProps&gt;((props, ref) &#x3D;&gt; &#123;
-     &#x2F;&#x2F; 这样外部传入的ref，引用的其实是这个Modal，然后在外部就可以bottomSheet.present()
-     return &lt; BottomSheetModal ref&#x3D;&#123;ref&#125; &#x2F;&gt;
-   &#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></blockquote>
-</li>
+  - &#96;&#96;&#96;typescript
+    const SingleSelectBottomSheet &#x3D; React.forwardRef&lt;BottomSheetModal, SingleSelectBottomSheetProps&gt;((props, ref) &#x3D;&gt; &#123;
+      &#x2F;&#x2F; 这样外部传入的ref，引用的其实是这个Modal，然后在外部就可以bottomSheet.present()
+      return &lt; BottomSheetModal ref&#x3D;&#123;ref&#125; &#x2F;&gt;
+    &#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li></li>
 </ul>
 </li>
 <li><p>基于上个问题，如何ref我的子组件本身？我想调用子组件的方法？</p>
